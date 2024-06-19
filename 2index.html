@@ -27,7 +27,8 @@
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./pages/upcomingEvents.html">Cocktails</a>
+                            <a class="nav-link active" aria-current="page"
+                                href="./pages/upcomingEvents.html">Cocktails</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="./pages/pastEvents.html">Food</a>
@@ -98,7 +99,7 @@
                             <h2>Contact Us</h2>
                             <p>Lorem Ipsum</p>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
                     data-bs-slide="prev">
@@ -113,7 +114,6 @@
             </div>
         </section>
         <section class="inputs mt-3 mx-2">
-            {{ filteredEvents }}
             <div class="input-group mb-3 d-flex justify-content-between align-items-center">
                 <div class="checkBox d-flex flex-wrap">
                     <div v-for="category in categories" :key="category" class="form-check form-check-inline">
@@ -122,27 +122,21 @@
                         <label class="form-check-label" :for="category">{{ category }}</label>
                     </div>
                 </div>
-                <form class="d-flex" role="search" @submit.prevent>
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model="searchText" />
+                <form class="d-flex" role="search" @submit.prevent="handleSearch">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                        v-model="searchText" />
                     <button v-on:click="handleSearch" class="btn btn-outline-success" type="submit">🔍</button>
                 </form>
             </div>
         </section>
         <section id="cardsPlace" class="cards d-flex flex-wrap justify-content-center mx-3">
-            <div v-if="events.length == 0">
-                <h1 class='text-center text-dark'>"No events related to your search."</h1>
-            </div>
-            <div v-for="event in events" :key="event.id" class="my-1">
-                <div class="card h-100 cards-i" style="width: 18rem">
-                    <img :src="event.image" class="card-img-top h-50 object-fit-cover" :alt="event.name">
-                    <div class="card-body text-center d-flex flex-column h-50">
-                        <h5 class="card-title">{{ event.name }}</h5>
-                        <p class="card-text">{{ event.description }}</p>
-                        <div class="d-flex justify-content-around align-items-baseline">
-                            <p>USD {{ event.price }} USD</p>
-                            <a :href="'./pages/details.html?id='+event._id" class="btn go-details">Details</a>
-                        </div>
-                    </div>
+            <div v-for="item in filteredItems" :key="item.idDrink || item.idMeal" class="card m-2"
+                style="width: 18rem;">
+                <img :src="item.strDrinkThumb || item.strMealThumb" class="card-img-top"
+                    :alt="item.strDrink || item.strMeal">
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.strDrink || item.strMeal }}</h5>
+                    <p class="card-text">{{ item.strInstructions }}</p>
                 </div>
             </div>
         </section>
@@ -164,7 +158,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="./modules/main.js" type="module"></script>
+    <script src="./modules/2main.js" type="module"></script>
 </body>
 
 </html>
