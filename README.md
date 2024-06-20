@@ -1,23 +1,24 @@
-# amazingEventsAndresGoyes
+# FinalChallengeMindHUB
 
-5th Sprint
+Diseñar una pagina web basada en la información de la api asignada que contenga como mínimo los siguientes parámetros:
 
-◾You’ll need to create a new repository for this sprint.
+1. Pagina home o principal donde se muestre la introducción al tema o el contenido principal, según la información asignada decidir y diseñar si mostrar todos los datos en la misma pagina o dividirlo en varias, la información de personajes, capítulos, mapas, comidas o lo que aplique debe de mostrarse en tarjetas y tener  sus filtro pertinentes (Mínimo filtro de texto y checkbox).
 
-◾You can use your 1st sprint as template, contemplating the improvements you did along the rest of the sprints.
+2. Pagina detalles, se deberá mostrar la información detallada de cada tarjeta que tenga la aplicación.
 
-◾You’ll have to upgrade your app taking advantage of Vue.js.
+3. Pagina estadísticas o informativa, en esta pagina se deberá mostrar una tabla con información importante de su tema.
 
-◾We’ll be using CDN, so remember to copy the script and add it to your html files.
+4. Requerimientos Generales: 
+- Todas la paginas deben de tener una navbar, footer
+- Se debe realizar en Vue
+- Se debe trabajar utilizando Git de manera colaborativa
+- Se debe usar Bootstrap en su mayoría pero pueden usar estilos propios
+- Tener la camra prendida en todo momento
+- La pagina tiene que ser Full Responsive
 
-◾Don’t forget to add the id=”app” to the container in which you’ll be using Vue.
-
-◾You can work with as many JS files as you had with JavaScript Vanilla or use just one.
-
-◾Remember that from now on Vue will be on charge of the DOM.
-
-◾The expected product will be the same as for the forth sprint.
-
-◾Once you’re done with your work add, commit and push your project to the new repository.
-
-◾Submit your sprint leaving the link to your GitHub repository.
+5. Integrantes:
+   - Andres Felipe Goyes Aponte
+   - Luis Miguel Macias
+   - Eduardo Gonzalez
+   - Álvaro Felipe Lopez Russi   
+   
