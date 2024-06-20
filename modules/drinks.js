@@ -6,9 +6,9 @@ const app = createApp({
         return {
             drinks: [],
             drinksBK: [],
-            categories: [], // You can adjust if needed
+            categories: [],
             searchText: "",
-            selectedCategories: [] // Adjust as per your data structure
+            selectedCategories: []
         };
     },
     created() {
@@ -19,9 +19,8 @@ const app = createApp({
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    this.drinks = data.drinks; // Adjust based on API response structure
-                    this.drinksBK = data.drinks; // Backup original data for filtering
-                    // Adjust categories if your API provides drink categories
+                    this.drinks = data.drinks;
+                    this.drinksBK = data.drinks;                    
                     this.categories = Array.from(new Set(this.drinks.map(drink => drink.strCategory)));
                 })
                 .catch(error => {

@@ -15,7 +15,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="../assets/amazing_brand.png" alt="Amazing Events" width="110" height="30" />
+                    <img src="../assets/brand.png" alt="Drinks & Foods" width="100" height="30" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,17 +27,17 @@
                             <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./upcomingEvents.html">Upcoming
-                                Events</a>
+                            <a class="nav-link active" aria-current="page" href="../pages/drinks.html">Drinks</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./pastEvents.html">Past Events</a>
+                            <a class="nav-link active" aria-current="page"
+                                href="../pages/foods.html">Foods</a>
+                        </li>                        
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="../pages/contact.html">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./contact.html">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./stats.html">Stats</a>
+                            <a class="nav-link active" aria-current="page" href="../pages/stats.html">Stats</a>
                         </li>
                     </ul>
                 </div>
@@ -45,26 +45,24 @@
         </nav>
     </header>
     <main id="app" class="mb-3">
-        <section id="eventContainer" class="d-flex justify-content-center align-items-center" style="padding: 20vh 0;">
-            <div v-if="event" class="d-flex justify-content-center">
-                <img class="cardDetails rounded-start border-end-0 w-50 object-fit-cover" :src="event.image"
-                    :alt="event.name" />
-                <div
-                    class="cardDetails rounded-end border-start-0 text-center p-2 d-flex flex-column justify-content-center">
+        <section id="dataContainer" class="d-flex justify-content-center align-items-center" style="padding: 10vh 0; max-width: 75%; margin: 0 auto;">
+            <div v-if="data" class="d-flex justify-content-center">
+                <img class="cardDetails rounded-start border-end-0 w-50 object-fit-cover" :src="data.strDrinkThumb || data.strMealThumb" :alt="data.strDrink || data.strMeal" />
+                <div class="cardDetails rounded-end border-start-0 text-center p-2 d-flex flex-column justify-content-center">
                     <h2 class="display-4 d-md-none d-lg-block fs-1 text-center">
-                        <i><b>{{ event.name }}</b></i>
-                    </h2>
-                    <p><strong>Description:</strong> {{ event.description }}</p>
-                    <p><strong>Date:</strong> {{ event.date }}</p>
-                    <p><strong>Place:</strong> {{ event.place }}</p>
-                    <p><strong>Category:</strong> {{ event.category }}</p>
-                    <p><strong>Capacity:</strong> {{ event.capacity }}</p>
-                    <p v-if="event.estimate"><strong>Estimate:</strong> {{ event.estimate }}</p>
-                    <p v-if="event.assistance"><strong>Assistance:</strong> {{ event.assistance }}</p>
-                    <p><strong>Price:</strong> ${{ event.price }}</p>
+                        <i><b>{{ data.strDrink || data.strMeal }}</b></i>
+                    </h2>                    
+                    <p><strong>Category:</strong> {{ data.strCategory }}</p>
+                    <p v-if="data.ingredients && data.ingredients.length > 0"><strong>Ingredients: </strong>
+                        <span v-for="(ingredient, index) in data.ingredients">                            
+                            <br><span v-if="index < data.ingredients.length - 1">{{ ingredient }}</span>
+                        </span>
+                    </p>                    
+                    <p v-if="data.strInstructions"><strong>Instructions: </strong> {{ data.strInstructions }}</p>
+                    <p v-else><strong>Instructions:</strong> No instructions available.</p>
                 </div>
             </div>
-        </section>
+        </section>        
     </main>
     <footer class="d-flex justify-content-between align-items-center px-2">
         <div class="d-flex">
