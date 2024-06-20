@@ -1,55 +1,65 @@
-const urlApi = "https://aulamindhub.github.io/amazing-api/events.json"
-const { createApp } = Vue
+let url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=%"
+let url2 = "https://www.themealdb.com/api/json/v1/1/search.php?s=%"
 
+const { createApp } = Vue
 const app = createApp({
     data() {
         return {
-            events: [],
-            eventsBK: [],
-            categories: [],
+            meals: [],
+            drinks: [],
             searchText: "",
+            categories: [],
             selectedCategories: []
         }
     },
     created() {
-        this.fetchData(urlApi)
+        this.fetchData(url)
+        this.fetchDataDrinks(url)
+        this.fetchDataMeals(url2)
     },
     methods: {
         fetchData(url) {
-            fetch(url).then(response => response.json()).then(data => {                
+            fetch(url).then(response => response.json()).then(data => {
                 if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
-                    this.events = data.events
-                    this.eventsBK = data.events
-                    this.categories = Array.from(new Set(this.events.map((event) => event.category)))
-                } else if (window.location.pathname === "/pages/pastEvents.html") {
-                    this.events = data.events
-                    this.eventsBK = data.events.filter(event => event.date < data.currentDate);
-                    this.categories = Array.from(new Set(this.eventsBK.map(event => event.category)));
-                } else if (window.location.pathname === "/pages/upcomingEvents.html") {
-                    this.events = data.events
-                    this.eventsBK = data.events.filter(event => event.date > data.currentDate);
-                    this.categories = Array.from(new Set(this.eventsBK.map(event => event.category)));
+                    this.categories = data.categories ? data.categories : ["Cocktails", "Foods"];
+                    this.categoriesBK = data.categories ? data.categories : ["Cocktails", "Foods"];
                 }
             })
-        },        
+        },
+        fetchDataDrinks(url) {
+            fetch(url).then(response => response.json()).then(data => {
+                this.drinks = data.drinks || []
+                console.log(this.drinks);
+            })
+        },
+        fetchDataMeals(url) {
+            fetch(url).then(response => response.json()).then(data => {
+                this.meals = data.meals || []
+                console.log(this.meals);
+            })
+        },
         handleSearch() {
             if (this.searchText.trim() === "") {
                 alert("What do you need? Let us help you find it!");
             } else {
-                this.filteredEvents();
+                this.filteredItems;
             }
         }
     },
     computed: {
-        filteredEvents() {
-            let filteredByText = this.eventsBK.filter(event => event.name.toLowerCase().includes(this.searchText.toLowerCase()))
-            console.log(filteredByText);
+        filteredItems() {
+            let filteredDrinks = this.drinks.filter(drink => drink.strDrink.toLowerCase().includes(this.searchText.toLowerCase()));
+            let filteredMeals = this.meals.filter(meal => meal.strMeal.toLowerCase().includes(this.searchText.toLowerCase()));
 
             if (this.selectedCategories.length > 0) {
-                this.events = filteredByText.filter(event => this.selectedCategories.includes(event.category))
-            } else {
-                this.events = filteredByText
+                if (!this.selectedCategories.includes("Cocktails")) {
+                    filteredDrinks = [];
+                }
+                if (!this.selectedCategories.includes("Foods")) {
+                    filteredMeals = [];
+                }
             }
+            return [...filteredDrinks, ...filteredMeals];
         }
     }
 }).mount('#app')

@@ -67,7 +67,7 @@ main {
         .cards-i {
             border: 2px solid #330113;
             transition: ease .2s;            
-            height: 45vh !important;
+            height: 35vh !important;
 
             &:hover {
                 transform: scale(1.05);
