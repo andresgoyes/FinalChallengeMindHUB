@@ -113,6 +113,9 @@
                 </button>
             </div>
         </section>
+
+
+        <!--checkbox-->
         <section class="inputs mt-3 mx-2">
             <div class="input-group mb-3 d-flex justify-content-between align-items-center">
                 <div class="checkBox d-flex flex-wrap">
@@ -129,6 +132,9 @@
                 </form>
             </div>
         </section>
+
+
+        <!--tarjetas-->
         <section id="cardsPlace" class="cards d-flex flex-wrap justify-content-center mx-3">
             <div v-if="filteredItems.length == 0">
                 <h1 class='text-center text-dark'>"No matches related to your search."</h1>
@@ -140,7 +146,7 @@
                     <div class="card-body d-flex flex-column justify-content-between text-center h-50">
                         <div>
                             <h5 class="card-title">{{ item.strDrink || item.strMeal }}</h5>
-                            <p class="card-text">{{ item.strInstructions }}</p>
+                            <p class="card-text">{{ item.strInstructions.slice(0,50) }}... </p>
                         </div>
                         <div class="mt-auto">
                             <a :href="'./pages/details.html?id=' + (item.idDrink || item.idMeal)"
