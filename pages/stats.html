@@ -112,76 +112,89 @@
                 </button>
             </div>
         </section>
-        <section class="p-5">
-            <div class="row justify-content-center py-5 w-100 tablas">
-                <div class="table-responsive col-md-10">
+
+
+
+
+        <!--tablas-->
+        <section class="p-5 bg-primary-subtle">
+
+            <!--comida categorias-->
+
+
+
+
+            
+
+            <div  class="row justify-content-center py-5 w-100 tablas">
+                <div class="table-responsive col-md-12">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th class="table-dark" scope="col" colspan="3">Events statistics</th>
+                                <th class="table-dark text-center" scope="col" colspan="3">food categories</th>
                             </tr>
                             <tr class="table-light">
-                                <td>Events with highest % of assistance</td>
-                                <td>Events with lowest % of assistance</td>
-                                <td>Events with larger capacity</td>
+                                <td class="center bg-secondary text-white">Category</td>
+                                <td class="center bg-secondary text-white">Description</td>
+                                <td class="center bg-secondary text-white">Events with larger capacity</td>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody v-for="categoria in categorias">
                             <tr class="text-center">
-                                <td>{{ highestAssistance.name }}</td>
-                                <td>{{ lowestAssistance.name }}</td>
-                                <td>{{ highestCapacity.name }}</td>
+                                <td class="align-middle">{{categoria.strCategory}}</td>
+                                <td class="align-middle">{{categoria.strCategoryDescription}}</td>
+                                <td class="col-4 align-middle"><img :src="categoria.strCategoryThumb" class="w-100" alt="imagen comida"></td>
                             </tr>
-                            <tr class="text-center">
-                                <td>{{ highestAssistance.percentage }}%</td>
-                                <td>{{ lowestAssistance.percentage }}%</td>
-                                <td>{{ highestCapacity.capacity.toLocaleString('es-CO') }}</td>
-                            </tr>
+                            
                         </tbody>
                     </table>
                 </div>
             </div>
+
+
+
+
+            <!--bebidas coctel-->
             <div class="d-flex justify-content-evenly">
                 <div class="container-fluid">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered border-secondary">
                         <thead>
                             <tr>
-                                <th class="table-dark text-center" scope="col" colspan="3">Upcoming events statistics by
-                                    category</th>
+                                <th class="table-dark text-center " scope="col" colspan="3">Cocktail</th>
                             </tr>
                             <tr class="text-center table-light">
-                                <td>Categories</td>
-                                <td>Revenues</td>
-                                <td>Percentage of assistance</td>
+                                <td class="bg-secondary text-white"> Drink</td>
+                                <td class="bg-secondary text-white">Image</td>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="text-center" v-for="stat in upcomingStats" :key="stat.name">
-                                <td>{{ stat.name }}</td>
-                                <td>{{ stat.revenues.toLocaleString('es-CO') }}</td>
-                                <td>{{ stat.percentage }}%</td>
+
+                            <tr class="text-center" v-for="bebida in categoriasBebidasCoctel ">
+                                <td class="align-middle">{{bebida.strDrink}}</td>
+                                <td><img :src="bebida.strDrinkThumb" alt="bebida coctel" class="w-100 h-100"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+
+
+                <!--bebidas ordinarias-->
                 <div class="container-fluid">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered border-secondary">
                         <thead>
                             <tr>
-                                <th class="table-dark text-center" scope="col" colspan="3">Past Events Statistics by
-                                    category</th>
+                                <th class="table-dark text-center" scope="col" colspan="3">Ordinary Drinks</th>
                             </tr>
                             <tr class="table-light text-center">
-                                <td>Categories</td>
-                                <td>Revenues</td>
-                                <td>Percentage of assistance</td>
+                                <td class="bg-secondary text-white">Drink</td>
+                                <td class="bg-secondary text-white">Image</td>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr class="text-center" v-for="stat in pastStats" :key="stat.name">
-                                <td>{{ stat.name }}</td>
-                                <td>{{ stat.revenues.toLocaleString('es-CO') }}</td>
-                                <td>{{ stat.percentage }}%</td>
+                        <tbody v-for="bebida in categoriasBebidas">
+                            <tr class="text-center">
+                                <td class="align-middle">{{bebida.strDrink}}</td>
+                                <td><img :src="bebida.strDrinkThumb" class="w-100 h-100" alt="imgaen bebida ordinaria"></td>
+
                             </tr>
                         </tbody>
                     </table>
