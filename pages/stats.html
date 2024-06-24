@@ -131,19 +131,19 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th class="table-dark text-center" scope="col" colspan="3">food categories</th>
+                                <th class="table-dark text-center" scope="col" colspan="3">Food and Drinks Statistics</th>
                             </tr>
                             <tr class="table-light">
-                                <td class="center bg-secondary text-white">Category</td>
-                                <td class="center bg-secondary text-white">Description</td>
-                                <td class="center bg-secondary text-white">Events with larger capacity</td>
+                                <td class="center bg-secondary text-white">Food with larger % presences in areas </td>
+                                <td class="center bg-secondary text-white">Food with larger % presences by category</td>
+                                <td class="center bg-secondary text-white">Drinks with larger & presences by category</td>
                             </tr>
                         </thead>
-                        <tbody v-for="categoria in categorias">
+                        <tbody>
                             <tr class="text-center">
-                                <td class="align-middle">{{categoria.strCategory}}</td>
-                                <td class="align-middle">{{categoria.strCategoryDescription}}</td>
-                                <td class="col-4 align-middle"><img :src="categoria.strCategoryThumb" class="w-100" alt="imagen comida"></td>
+                                <td class="align-middle">{{areaMasComida+" "+ (((this.porcentajeAreasComidas[this.areaMasComida])/this.comida.length)*100).toFixed(2) +"%"}}</td>
+                                <td class="align-middle">{{masCategoriasComidas + " " + (((this.porcentajeDeComidas[this.masCategoriasComidas])/this.comida.length)*100).toFixed(2) +"%"}}</td>
+                                <td class="align-middle">{{categoriaMasBebidas + " " + (((this.porcentajeDeBebidasCategoria[this.categoriaMasBebidas])/this.bebida.length)*100).toFixed(2) +"%"}}</td>
                             </tr>
                             
                         </tbody>
@@ -151,7 +151,26 @@
                 </div>
             </div>
 
+            <div class="container-fluid">
+                <table class="table table-bordered border-secondary">
+                    <thead>
+                        <tr>
+                            <th class="table-dark text-center" scope="col" colspan="3">Food Area</th>
+                        </tr>
+                        <tr class="table-light text-center">
+                            <td class="bg-secondary text-white">Category</td>
+                            <td class="bg-secondary text-white">%</td>
+                        </tr>
+                    </thead>
+                    <tbody v-for="categoria in areaComidas">
+                        <tr class="text-center">
+                            <td class="align-middle">{{categoria}}</td>
+                            <td>{{(((porcentajeAreasComidas[categoria])/this.comida.length)*100).toFixed(2) +"%"}}</td>
 
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
 
             <!--bebidas coctel-->
@@ -160,16 +179,16 @@
                     <table class="table table-bordered border-secondary">
                         <thead>
                             <tr>
-                                <th class="table-dark text-center " scope="col" colspan="3">Cocktail</th>
+                                <th class="table-dark text-center " scope="col" colspan="3">Drinks categories</th>
                             </tr>
                             <tr class="text-center table-light">
                                 <td class="bg-secondary text-white"> Drink</td>
-                                <td class="bg-secondary text-white">Image</td>
+                                <td class="bg-secondary text-white"> % Category</td>
                             </tr>
                         </thead>
                         <tbody>
 
-                            <tr class="text-center" v-for="bebida in categoriasBebidasCoctel ">
+                            <tr class="text-center" v-for="bebida in  ">
                                 <td class="align-middle">{{bebida.strDrink}}</td>
                                 <td><img :src="bebida.strDrinkThumb" alt="bebida coctel" class="w-100 h-100"></td>
                             </tr>
@@ -202,6 +221,9 @@
             </div>
         </section>
     </main>
+
+
+    
 
     <footer class="d-flex justify-content-between align-items-center px-2">
         <div class="d-flex">
