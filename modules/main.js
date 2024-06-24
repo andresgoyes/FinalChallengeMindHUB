@@ -9,7 +9,9 @@ const app = createApp({
             drinks: [],
             searchText: "",
             categories: [],
-            selectedCategories: []
+            selectedCategories: [],
+            favorites: [],
+            showFavoritesModal: false
         }
     },
     created() {
@@ -44,7 +46,14 @@ const app = createApp({
             } else {
                 this.filteredItems;
             }
+        },
+        addToFavorites(item) {
+            if (!this.favorites.includes(item)) {
+                this.favorites.push(item);
+            }
         }
+        
+
     },
     computed: {
         filteredItems() {
