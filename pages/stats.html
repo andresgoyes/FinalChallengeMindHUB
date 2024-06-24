@@ -158,14 +158,17 @@
                             <th class="table-dark text-center" scope="col" colspan="3">Food Area</th>
                         </tr>
                         <tr class="table-light text-center">
-                            <td class="bg-secondary text-white">Category</td>
-                            <td class="bg-secondary text-white">%</td>
+                            <td class="bg-secondary text-white">area</td>
+                            <td class="bg-secondary text-white">ofrecemos </td>
+                            <td class="bg-secondary text-white"># platos </td>
                         </tr>
                     </thead>
                     <tbody v-for="categoria in areaComidas">
                         <tr class="text-center">
                             <td class="align-middle">{{categoria}}</td>
                             <td>{{(((porcentajeAreasComidas[categoria])/this.comida.length)*100).toFixed(2) +"%"}}</td>
+                            
+                            <td class="align-middle">{{porcentajeAreasComidas[categoria]}}</td>
 
                         </tr>
                     </tbody>
@@ -179,18 +182,18 @@
                     <table class="table table-bordered border-secondary">
                         <thead>
                             <tr>
-                                <th class="table-dark text-center " scope="col" colspan="3">Drinks categories</th>
+                                <th class="table-dark text-center " scope="col" colspan="3">categoriua comida</th>
                             </tr>
                             <tr class="text-center table-light">
-                                <td class="bg-secondary text-white"> Drink</td>
-                                <td class="bg-secondary text-white"> % Category</td>
+                                <td class="bg-secondary text-white"> category</td>
+                                <td class="bg-secondary text-white"> % </td>
                             </tr>
                         </thead>
                         <tbody>
 
-                            <tr class="text-center" v-for="bebida in  ">
-                                <td class="align-middle">{{bebida.strDrink}}</td>
-                                <td><img :src="bebida.strDrinkThumb" alt="bebida coctel" class="w-100 h-100"></td>
+                            <tr class="text-center" v-for="categoria in categoriasComidas ">
+                                <td class="align-middle">{{categoria}}</td>
+                                <td>{{(((porcentajeDeComidas[categoria])/this.comida.length)*100).toFixed(2) +"%"}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -202,17 +205,17 @@
                     <table class="table table-bordered border-secondary">
                         <thead>
                             <tr>
-                                <th class="table-dark text-center" scope="col" colspan="3">Ordinary Drinks</th>
+                                <th class="table-dark text-center" scope="col" colspan="3">categoria bebida</th>
                             </tr>
                             <tr class="table-light text-center">
                                 <td class="bg-secondary text-white">Drink</td>
-                                <td class="bg-secondary text-white">Image</td>
+                                <td class="bg-secondary text-white">%</td>
                             </tr>
                         </thead>
                         <tbody v-for="bebida in categoriasBebidas">
                             <tr class="text-center">
-                                <td class="align-middle">{{bebida.strDrink}}</td>
-                                <td><img :src="bebida.strDrinkThumb" class="w-100 h-100" alt="imgaen bebida ordinaria"></td>
+                                <td class="align-middle">{{bebida}}</td>
+                                <td>{{(((porcentajeDeBebidasCategoria[bebida])/this.bebida.length)*100).toFixed(2) +"%"}}</td>
 
                             </tr>
                         </tbody>
