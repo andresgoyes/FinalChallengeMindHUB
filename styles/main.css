@@ -67,7 +67,7 @@
         .cards-i {
             border: 2px solid #330113;
             transition: ease .2s;            
-            height: 35vh !important;
+            height: 80% !important;
 
             &:hover {
                 transform: scale(1.05);
@@ -155,7 +155,6 @@
 }
 
 #footer {
-    height: 5vh;
     width: 100%;
     background-color: #212529;
     color: whitesmoke;
@@ -176,7 +175,6 @@
     }
 }
 
-
 #floating-button {
     position: fixed;
     bottom: 20px;
@@ -195,17 +193,53 @@
 
     transform: translate(-50%, -50%);
     z-index: 1050;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);    
 }
 
 .modal-body{
     display: flex !important;
     flex-wrap: wrap !important;
-    justify-content: center !important;
+    justify-content: center !important;    
+}
+
+.mt-auto{
+    justify-content: center !important;    
 }
 
 .carta_modal {
     width: 300px;
+    display: flexbox;    
+    justify-content: space-around;
+    align-items: center;
+    .go-detail {
+        margin-bottom: 1vw;
+        background-color: red;
+        color: whitesmoke;
+        font-weight: bold;
+        justify-content: center;
+        &:hover {
+            box-shadow: 0 0 10px black;
+        }
+    }
+}
 
+.container {
     display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+}
+.video {
+    flex: 1;
+}
+.texto {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+h2 {
+    text-align: center; /* Centra el texto del h2 */
 }

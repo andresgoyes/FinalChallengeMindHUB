@@ -30,13 +30,13 @@ const app = createApp({
         },
         fetchDataDrinks(url) {
             fetch(url).then(response => response.json()).then(data => {
-                this.drinks = data.drinks || []
+                this.drinks = data.drinks.map(drink => ({ ...drink, addedToFavorites: false })) || []
                 console.log(this.drinks);
             })
         },
         fetchDataMeals(url) {
             fetch(url).then(response => response.json()).then(data => {
-                this.meals = data.meals || []
+                this.meals = data.meals.map(meal => ({ ...meal, addedToFavorites: false })) || []
                 console.log(this.meals);
             })
         },
@@ -48,12 +48,13 @@ const app = createApp({
             }
         },
         addToFavorites(item) {
+            item.addedToFavorites = !item.addedToFavorites;
             if (!this.favorites.includes(item)) {
                 this.favorites.push(item);
+            } else {
+                this.favorites = this.favorites.filter(favorite => favorite.idDrink !== item.idDrink && favorite.idMeal !== item.idMeal);
             }
         }
-        
-
     },
     computed: {
         filteredItems() {
