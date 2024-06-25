@@ -206,7 +206,7 @@
 }
 
 .carta_modal {
-    width: 300px;
+    width: 200px;
     display: flexbox; 
     box-sizing: border-box;  
     justify-content: center;
