@@ -190,7 +190,6 @@
     position: fixed;
     top: 50%;
     left: 50%;
-
     transform: translate(-50%, -50%);
     z-index: 1050;
     background-color: rgba(0, 0, 0, 0.5);    
@@ -208,8 +207,9 @@
 
 .carta_modal {
     width: 300px;
-    display: flexbox;    
-    justify-content: space-around;
+    display: flexbox; 
+    box-sizing: border-box;  
+    justify-content: center;
     align-items: center;
     .go-detail {
         margin-bottom: 1vw;
@@ -221,6 +221,16 @@
             box-shadow: 0 0 10px black;
         }
     }
+}
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+.card-img-top {
+    width: 100%;
+    height: auto;
 }
 
 .container {

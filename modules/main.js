@@ -54,7 +54,15 @@ const app = createApp({
             } else {
                 this.favorites = this.favorites.filter(favorite => favorite.idDrink !== item.idDrink && favorite.idMeal !== item.idMeal);
             }
+            localStorage.setItem('favorites', JSON.stringify(this.favorites));
+        },
+
+        mounted(){
+            this.favorites = JSON.parse(localStorage.getItem('favorites')) || [];
         }
+        
+        
+
     },
     computed: {
         filteredItems() {
