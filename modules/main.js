@@ -49,8 +49,9 @@ const app = createApp({
         },
         addToFavorites(item) {
             item.addedToFavorites = !item.addedToFavorites;
+            if (item.addedToFavorites) {
             if (!this.favorites.includes(item)) {
-                this.favorites.push(item);
+                this.favorites.push(item);}
             } else {
                 this.favorites = this.favorites.filter(favorite => favorite.idDrink !== item.idDrink && favorite.idMeal !== item.idMeal);
             }
@@ -58,7 +59,10 @@ const app = createApp({
         },
 
         mounted(){
-            this.favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            const storedFavorites = localStorage.getItem('favorites');
+            if (storedFavorites) {
+                this.favorites = JSON.parse(storedFavorites);
+            }
         }
         
         
