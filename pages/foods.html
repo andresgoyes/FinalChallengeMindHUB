@@ -139,11 +139,55 @@
                         <p class="card-text">{{ item.strInstructions }}</p>
                     </div>
                     <div class="mt-auto">
+                        <button class="btn mb-2 mx-1" :class="item.addedToFavorites ? 'btn-success' : 'btn-primary'"
+                                @click="addToFavorites(item)">
+                                {{ item.addedToFavorites ? 'Added' : 'Add to Favorites❤️' }}
+                            </button>
                         <a :href="'../pages/details.html?id=' + item.idMeal" class="btn go-details">Details</a>
                     </div>
                 </div>
             </div>
         </section>
+        <div id="floating-button">
+            <button class="btn btn-danger rounded-circle" @click="showFavoritesModal = true; mounted()">
+                ❤️
+            </button>
+        </div>
+    
+            <!-- Modal de favoritos -->
+    <div v-if="showFavoritesModal" class="modal" tabindex="-1" style="display: block;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Favorites</h5>
+                    <button type="button" class="btn-close" @click="showFavoritesModal = false"></button>
+                </div>
+                <div class="modal-body">
+                    <div v-if="favorites.length === 0">
+                        <p>No favorites added yet.</p>
+                    </div>
+                    <div v-else class="card-container">
+                        <div v-for="item in favorites" :key="item.idDrink || item.idMeal" class="carta_modal card mb-3">
+                            <img :src="item.strDrinkThumb || item.strMealThumb" class="card-img-top" :alt="item.strDrink || item.strMeal">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ item.strDrink || item.strMeal }}</h5>
+                                <p class="card-text">{{ item.strInstructions.slice(0, 50) }}...</p>
+                                <button class="btn" :class="item.addedToFavorites ? 'btn-success' : 'btn-primary'" @click="addToFavorites(item)">
+                                    {{ item.addedToFavorites ? 'Added' : 'Add to Favorites' }}
+                                </button>
+                            </div>
+                            <div class="mt-auto">
+                                <a :href="'./pages/details.html?id=' + (item.idDrink || item.idMeal)" class="btn go-detail">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @click="showFavoritesModal = false">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     </main>
     <footer class="d-flex justify-content-between align-items-center px-2">
         <div class="d-flex">
