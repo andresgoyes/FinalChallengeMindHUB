@@ -8,7 +8,9 @@ const app = createApp({
             drinksBK: [],
             categories: [],
             searchText: "",
-            selectedCategories: []
+            selectedCategories: [],
+            favorites: [],
+            showFavoritesModal: false
         };
     },
     created() {
@@ -46,6 +48,19 @@ const app = createApp({
             } else {
                 this.drinks = filteredByText;
             }
+        },
+        addToFavorites(item) {
+            item.addedToFavorites = !item.addedToFavorites;
+            if (!this.favorites.includes(item)) {
+                this.favorites.push(item);
+            } else {
+                this.favorites = this.favorites.filter(favorite => favorite.idDrink !== item.idDrink && favorite.idMeal !== item.idMeal);
+            }
+            localStorage.setItem('favorites', JSON.stringify(this.favorites));
+        },
+
+        mounted(){
+            this.favorites = JSON.parse(localStorage.getItem('favorites')) || [];
         }
     },
     computed: {
