@@ -1,16 +1,28 @@
+<<<<<<< HEAD
 header {
+=======
+#header {
+>>>>>>> main
     .navbar-dark .navbar-nav .nav-link:hover {
         color: orange;
     }
 }
 
+<<<<<<< HEAD
 body {
+=======
+#body {
+>>>>>>> main
     width: 100%;
     height: 100vh;
     background-color: whitesmoke;
 }
 
+<<<<<<< HEAD
 main {
+=======
+#app {
+>>>>>>> main
     background-color: whitesmoke;
 
     .banner {
@@ -154,8 +166,12 @@ main {
     }
 }
 
+<<<<<<< HEAD
 footer {
     height: 5vh;
+=======
+#footer {
+>>>>>>> main
     width: 100%;
     background-color: #212529;
     color: whitesmoke;
@@ -174,4 +190,86 @@ footer {
             filter: drop-shadow(0 0 10px #D90368);
         }
     }
+<<<<<<< HEAD
+=======
+}
+
+#floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.modal-backdrop {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1050;
+    background-color: rgba(0, 0, 0, 0.5);    
+}
+
+.modal-body{
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;    
+}
+
+.mt-auto{
+    justify-content: center !important;    
+}
+
+.carta_modal {
+    width: 300px;
+    display: flexbox; 
+    box-sizing: border-box;  
+    justify-content: center;
+    align-items: center;
+    .go-detail {
+        margin-bottom: 1vw;
+        background-color: red;
+        color: whitesmoke;
+        font-weight: bold;
+        justify-content: center;
+        &:hover {
+            box-shadow: 0 0 10px black;
+        }
+    }
+}
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+.card-img-top {
+    width: 100%;
+    height: auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+}
+.video {
+    flex: 1;
+}
+.texto {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+h2 {
+    text-align: center; /* Centra el texto del h2 */
+>>>>>>> main
 }
