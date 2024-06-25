@@ -21,6 +21,8 @@ const app = createApp({
             categoriasComidas:[],
             porcentajeDeComidas:[],
             masCategoriasComidas:[],
+
+
             
         }
     },
@@ -33,7 +35,7 @@ const app = createApp({
             fetch(url).then(response => response.json()).then(data => {
                 this.bebida = data.drinks
 
-                console.log(this.bebida);
+                
                 //bebidas
                 data.drinks.forEach(e => {
                     if (!this.categoriasBebidas.includes(e.strCategory)) {
@@ -93,6 +95,7 @@ const app = createApp({
                 });
                 this.masCategoriasComidas = Object.keys(this.porcentajeDeComidas).reduce((a, b) => this.porcentajeDeComidas[a] > this.porcentajeDeComidas[b] ? a : b);
             })
+            
         }
     }
 

@@ -134,9 +134,9 @@
                                 <th class="table-dark text-center" scope="col" colspan="3">Food and Drinks Statistics</th>
                             </tr>
                             <tr class="table-light">
-                                <td class="center bg-secondary text-white">area con mayor precensia </td>
-                                <td class="center bg-secondary text-white">categoria con mayor precensia </td>
-                                <td class="center bg-secondary text-white">categoria de  bebida con mayor precensia</td>
+                                <td class="center bg-secondary text-white">Area with the highest presence </td>
+                                <td class="center bg-secondary text-white">Category with the highest presence </td>
+                                <td class="center bg-secondary text-white">Drinks category with the highest presence</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -152,15 +152,47 @@
             </div>
 
             <div class="container-fluid">
+
+                <div class="container-fluid">
+                    <table class="table table-bordered border-secondary">
+                        <thead>
+                            <tr>
+                                <th class="table-dark text-center " scope="col" colspan="3">Food Categories</th>
+                            </tr>
+                            <tr class="text-center table-light">
+                                <td class="bg-secondary text-white"> category</td>
+                                <td class="bg-secondary text-white">  Percentage in the menu </td>
+                                <td class="bg-secondary text-white"> Image </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr class="text-center" v-for="categoria in categoriasComidas ">
+                                <td class="align-middle">{{categoria}}</td>
+                                <td class="align-middle">{{(((porcentajeDeComidas[categoria])/this.comida.length)*100).toFixed(2) +"%"}}</td>
+                                <td><img class="" :src="'https://www.themealdb.com/images/category/' + categoria + '.png'" alt=""></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+
+
+            <!--bebidas coctel-->
+            <div class="d-flex justify-content-evenly">
+
+                <!--bebidas ordinarias-->
+                
                 <table class="table table-bordered border-secondary">
                     <thead>
                         <tr>
-                            <th class="table-dark text-center" scope="col" colspan="3">Food Area</th>
+                            <th class="table-dark text-center" scope="col" colspan="3">Food Regions</th>
                         </tr>
                         <tr class="table-light text-center">
-                            <td class="bg-secondary text-white">area</td>
-                            <td class="bg-secondary text-white">ofrecemos </td>
-                            <td class="bg-secondary text-white"># platos </td>
+                            <td class="bg-secondary text-white">Regions</td>
+                            <td class="bg-secondary text-white">Percentage of area </td>
+                            <td class="bg-secondary text-white">Number of plates </td>
                         </tr>
                     </thead>
                     <tbody v-for="categoria in areaComidas">
@@ -173,50 +205,21 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-
-
-            <!--bebidas coctel-->
-            <div class="d-flex justify-content-evenly">
                 <div class="container-fluid">
                     <table class="table table-bordered border-secondary">
                         <thead>
                             <tr>
-                                <th class="table-dark text-center " scope="col" colspan="3">categoriua comida</th>
-                            </tr>
-                            <tr class="text-center table-light">
-                                <td class="bg-secondary text-white"> category</td>
-                                <td class="bg-secondary text-white"> % </td>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr class="text-center" v-for="categoria in categoriasComidas ">
-                                <td class="align-middle">{{categoria}}</td>
-                                <td>{{(((porcentajeDeComidas[categoria])/this.comida.length)*100).toFixed(2) +"%"}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-
-                <!--bebidas ordinarias-->
-                <div class="container-fluid">
-                    <table class="table table-bordered border-secondary">
-                        <thead>
-                            <tr>
-                                <th class="table-dark text-center" scope="col" colspan="3">categoria bebida</th>
+                                <th class="table-dark text-center" scope="col" colspan="3">Drinks Categories</th>
                             </tr>
                             <tr class="table-light text-center">
                                 <td class="bg-secondary text-white">Drink</td>
-                                <td class="bg-secondary text-white">%</td>
+                                <td class="bg-secondary text-white">Percentage of drink</td>
                             </tr>
                         </thead>
                         <tbody v-for="bebida in categoriasBebidas">
                             <tr class="text-center">
                                 <td class="align-middle">{{bebida}}</td>
                                 <td>{{(((porcentajeDeBebidasCategoria[bebida])/this.bebida.length)*100).toFixed(2) +"%"}}</td>
-
                             </tr>
                         </tbody>
                     </table>
