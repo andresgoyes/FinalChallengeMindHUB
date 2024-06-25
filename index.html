@@ -115,67 +115,117 @@
 
         <section class="container my-4">
             <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="video">
-                        <iframe width="560" height="350"
-                            src="https://www.youtube.com/embed/qH4Cge_ED-4?si=0PZLb37uPvQ1GFHu"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
+                <div class="col-lg-6 d-flex justify-content-center align-items-center mb-4 mb-lg-0">
+                    <iframe width="560" height="360" src="https://www.youtube.com/embed/qH4Cge_ED-4?si=0PZLb37uPvQ1GFHu"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen class="w-100">
+                    </iframe>
                 </div>
-                <div class="col-lg-6 col-md-12 mb-4">
-                    <div class="texto">
-                        <h4><strong>About Cocktails!</strong></h4>
-                        <p>Step into a world of flavor and sophistication with our expertly crafted cocktails. Whether
-                            you're a cocktail connoisseur or new to the mixology scene, our diverse selection promises
-                            something for every palate.</p>
+                <div class="col-lg-6 d-flex flex-column justify-content-center team5">
+                    <h3><strong>About our Cocktails!</strong></h3>
+                    <p>Step into a world of flavor and sophistication with our expertly crafted cocktails. Whether
+                        you're a cocktail connoisseur or new to the mixology scene, our diverse selection promises
+                        something for every palate.</p>
 
-                        <ul>
-                            <li>
-                                <strong> We use only the freshest fruits</strong>, herbs, and premium
-                                spirits to ensure every sip is a delightful experience.
-                            </li>
-                            <li>
-                                <strong> Relax in our stylish</strong>, comfortable setting designed to
-                                enhance your cocktail experience. Perfect for a night out with friends, a date, or
-                                simply unwinding after a long day.
-                            </li>
-                            <li>
-                                <strong> Enjoy our fantastic</strong> cocktails at a great price
-                                during our daily happy hour. Don't miss out on these amazing deals!
-                            </li>
-                        </ul>
-                        <div class="d-flex justify-content-end">
-                            <a href="/pages/drinks.html" class="btn btn-primary mt-3">See More</a>
-                        </div>
+                    <ul>
+                        <li>
+                            <strong> We use only the freshest fruits</strong>, herbs, and premium
+                            spirits to ensure every sip is a delightful experience.
+                        </li>
+                        <li>
+                            <strong> Relax in our stylish</strong>, comfortable setting designed to
+                            enhance your cocktail experience. Perfect for a night out with friends, a date, or
+                            simply unwinding after a long day.
+                        </li>
+                        <li>
+                            <strong> Enjoy our fantastic</strong> cocktails at a great price
+                            during our daily happy hour. Don't miss out on these amazing deals!
+                        </li>
+                    </ul>
+                    <div class="d-flex justify-content-end">
+                        <a href="./pages/drinks.html" class="btn btn-primary mt-3">See More</a>
                     </div>
                 </div>
+            </div>
         </section>
 
-        <section style="background-color: #eee;">
+        <section class="container my-4">
+            <div class="row">
+                <div class="col-lg-6 d-flex flex-column justify-content-center team5">
+                    <h3><strong>Hungry?</strong></h3>
+                    <p>Indulge in a culinary adventure that tantalizes the senses. Discover a menu crafted with
+                        passion and expertise, where each dish promises a symphony of flavors. Whether you crave the
+                        comforting warmth of
+                        home-cooked classics or the bold innovation of gourmet creations, our restaurant invites you to
+                        savor every
+                        moment. Join us and embark on a journey of culinary delight.</p>
+                    <div class="d-flex justify-content-start">
+                        <a href="./pages/foods.html" class="btn btn-primary mt-3">See More</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-flex justify-content-center align-items-center mt-4 mt-lg-0">
+                    <img src="./assets/food.jpg" alt="Delicious Foods" class="img-fluid">
+                </div>
+            </div>
+        </section>
+
+        <section class="py-3 team4">
+            <h3 class="text-center">Our Team</h3>
             <div class="container">
-                <div class="text-center">
-                    <h4 class="mt-4 mb-5 justify-content-center"><strong>Hungry?</strong></h4>
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4" v-for="category in categories"
-                            :key="category.idCategory">
-                            <div class="card h-100">
-                                <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-                                    data-mdb-ripple-color="light">
-                                    <img :src="category.strCategoryThumb" class="w-100" />
-                                    <a href="#!">
-                                        <div class="hover-overlay">
-                                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);">
-                                            </div>
-                                        </div>
-                                    </a>
+                <div class="row justify-content-center">
+                    <div class="col-lg-2 mb-4">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="https://avatars.githubusercontent.com/u/86809993?v=4" alt="wrapkit"
+                                    class="img-fluid rounded-circle w-100" />
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <div class="pt-2">
+                                    <h5 class="mt-4 font-weight-medium mb-0">Andres Goyes</h5>
+                                    <h6 class="subtitle mb-3">Electronic Engineer</h6>
                                 </div>
-                                <div class="card-body">
-                                    <a href="" class="text-reset">
-                                        <h5 class="card-title mb-3">{{ category.strCategory }}</h5>
-                                    </a>
-                                    <h6 class="mb-3">$61.99</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 mb-4">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="https://avatars.githubusercontent.com/u/148910602?v=4" alt="wrapkit"
+                                    class="img-fluid rounded-circle w-100" />
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <div class="pt-2">
+                                    <h5 class="mt-4 font-weight-medium mb-0">Luis Miguel Macias</h5>
+                                    <h6 class="subtitle mb-3">Backend Developer</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 mb-4">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="https://avatars.githubusercontent.com/u/166529462?v=4" alt="wrapkit"
+                                    class="img-fluid rounded-circle w-100" />
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <div class="pt-2">
+                                    <h5 class="mt-4 font-weight-medium mb-0">Eduardo Gonzalez</h5>
+                                    <h6 class="subtitle mb-3">Software Engineer</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 mb-4">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="https://avatars.githubusercontent.com/u/106277647?v=4" alt="wrapkit"
+                                    class="img-fluid rounded-circle w-100" />
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <div class="pt-2">
+                                    <h5 class="mt-4 font-weight-medium mb-0">Felipe Russi</h5>
+                                    <h6 class="subtitle mb-3">Software Developer</h6>
                                 </div>
                             </div>
                         </div>
@@ -184,9 +234,7 @@
             </div>
         </section>
 
-
     </main>
-
 
     <footer class="d-flex justify-content-between align-items-center px-2">
         <div class="d-flex">
@@ -200,17 +248,12 @@
                 <img src="./assets/ig_logo.png" alt="Instagram" class="img-fluid" width="40" height="40">
             </a>
         </div>
-        <p class="pt-3 fs-6">Cohort 3 - Team 4: Andres Goyes - Eduardo Gonzales - Luis Miguel Macias- Felipe Russi</p>
+        <p class="pt-3 fs-6">Cohort 3 - Team 4: Andres Goyes - Eduardo Gonzales - Luis Miguel Macias - Felipe Russi</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./modules/meal.js" type="module"></script>
-
-
-
 </body>
-
-
 
 </html>
