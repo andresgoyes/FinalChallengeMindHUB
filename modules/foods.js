@@ -47,13 +47,22 @@ const app = createApp({
         },
         addToFavorites(item) {
             item.addedToFavorites = !item.addedToFavorites;
-            if (!this.favorites.includes(item)) {
-                this.favorites.push(item);
+        
+            if (item.addedToFavorites) {
+                if (!this.favorites.some(favorite => favorite.idDrink === item.idDrink && favorite.idMeal === item.idMeal)) {
+                    this.favorites.push(item)
+                }
             } else {
-                this.favorites = this.favorites.filter(favorite => favorite.idDrink !== item.idDrink && favorite.idMeal !== item.idMeal);
+                this.favorites = this.favorites.filter(favorite => !(favorite.idDrink === item.idDrink && favorite.idMeal === item.idMeal))
             }
             localStorage.setItem('favorites', JSON.stringify(this.favorites));
+        
+            const mealToUpdate = this.meals.find(meal => meal.idDrink === item.idDrink && meal.idMeal === item.idMeal)
+            if (mealToUpdate) {
+                mealToUpdate.addedToFavorites = item.addedToFavorites
+            }
         },
+        
 
         mounted(){
             this.favorites = JSON.parse(localStorage.getItem('favorites')) || [];
