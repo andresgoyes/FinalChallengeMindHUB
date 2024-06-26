@@ -143,6 +143,7 @@
         <section id="cardsPlace" class="cards d-flex flex-wrap justify-content-center mx-3">
             <div v-if="filteredItems.length == 0">
                 <h1 class='text-center text-dark'>"No matches related to your search."</h1>
+                <br><br><br>
             </div>
             <div v-for="item in filteredItems" :key="item.idMeal" class="card h-100 cards-i" style="width: 18rem">
                 <img :src="item.strDrinkThumb" class="card-img-top h-50" :alt="item.strDrink">
