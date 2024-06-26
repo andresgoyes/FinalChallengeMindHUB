@@ -32,7 +32,6 @@ header {
         .carousel-indicators {
             filter: invert(90%);
         }
-
     }
 
     @media (max-width: 768px) {
@@ -57,18 +56,17 @@ header {
         }
     }
 
-
     .cards {
 
         .cards-i {
             border: 2px solid #330113;
             transition: ease .2s;
             height: 80% !important;
+            margin: 1vh; /* Asegurarse de que haya un margen pequeño para evitar problemas de diseño al agrandar */
 
             &:hover {
                 transform: scale(1.05);
                 box-shadow: 0 0 10px black;
-                margin: 4vh;
             }
         }
 
