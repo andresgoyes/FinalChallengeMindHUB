@@ -127,6 +127,7 @@
 
 
             <div class="row justify-content-center py-5 w-100 tablas">
+
                 <div class="table-responsive col-md-12">
                     <table class="table table-bordered">
                         <thead>
@@ -161,37 +162,45 @@
 
 
             <!--bebidas coctel-->
-            <div class="d-flex justify-content-evenly">
-                <table class="table table table-bordered border-secondary">
-                    <thead>
-                        <tr>
-                            <th class="table-dark text-center" scope="col" colspan="4">Alcoholic drinks</th>
-                        </tr>
-                        <tr class="table-light text-center">
-                            <td class="bg-secondary text-white">Drink</td>
-                            <td class="bg-secondary text-white">Image</td>
-                            <td class="bg-secondary text-white">Ingredients</td>
-                            <td class="bg-secondary text-white">Preparation</td>
-                        </tr>
-                    </thead>
-                    <tbody v-for="bebida in drinksAlcohol">
-                        <tr class="text-center">
-                            <td class="align-middle">{{bebida.strDrink}}</td>
-                            <td class="col-4"><img class="w-50" :src="bebida.strDrinkThumb" alt=""></td>
-                            <td class="align-middle">
-                                {{bebida.strIngredient1}}<br>{{bebida.strIngredient2}}<br>{{bebida.strIngredient3}}</td>
-                            <td class="align-middle">{{bebida.strInstructions}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="row justify-content-evenly">
+
+                <div class="col-md-6">
+                    <table class=" table table table-bordered border-secondary ">
+                        <thead>
+                            <tr>
+                                <th class="table-dark text-center" scope="col" colspan="4">Alcoholic drinks</th>
+                            </tr>
+                            <tr class="table-light text-center">
+                                <td class="bg-secondary text-white">Drink</td>
+                                <td class="bg-secondary text-white">Image</td>
+                                <td class="bg-secondary text-white">Ingredients</td>
+                                <td class="bg-secondary text-white">Preparation</td>
+                            </tr>
+                        </thead>
+                        <tbody v-for="bebida in drinksAlcohol">
+                            <tr class="text-center">
+                                <td class="align-middle">{{bebida.strDrink}}</td>
+                                <td class="col-md-2  col-4 align-middle col-sm-6"><img class="w-100 " :src="bebida.strDrinkThumb" alt=""></td>
+                                <td class="align-middle">
+                                    {{bebida.strIngredient1}}<br>{{bebida.strIngredient2}}<br>{{bebida.strIngredient3}}
+                                </td>
+                                <td class="align-middle">{{bebida.strInstructions}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
 
-                <div class="container-fluid">
+
+
+
+                <div class="col-md-6">
                     <!-- bebidas no alcoholicas -->
                     <table class="table table  table-bordered border-secondary">
                         <thead>
                             <tr>
-                                <th class="table-dark text-center" scope="col" colspan="4">Non-alcoholic drinks</th>
+                                <th class="table-dark text-center" scope="col" colspan="4">Non-alcoholic drinks
+                                </th>
                             </tr>
                             <tr class="table-light text-center">
                                 <td class="bg-secondary text-white">Drink</td>
@@ -204,7 +213,7 @@
                         <tbody v-for="bebida in drinksNoalcohol">
                             <tr class="text-center">
                                 <td class="align-middle">{{bebida.strDrink}}</td>
-                                <td class="col-4"><img class="w-100" :src="bebida.strDrinkThumb" alt=""></td>
+                                <td class="col-md-3 col-sm-6 align-middle col-4"><img class="w-100" :src="bebida.strDrinkThumb" alt=""></td>
                                 <td class="align-middle">
                                     {{bebida.strIngredient1}}<br>{{bebida.strIngredient2}}<br>{{bebida.strIngredient3}}
                                 </td>
@@ -215,78 +224,101 @@
 
 
                     <!--food categories-->
-                    <table class="table  table-bordered border-secondary">
-                        <thead>
-                            <tr>
-                                <th class="table-dark text-center " scope="col" colspan="3">Food Categories</th>
-                            </tr>
-                            <tr class="text-center table-light">
-                                <td class="bg-secondary text-white"> category</td>
-                                <td class="bg-secondary text-white"> Percentage in the menu </td>
-                                <td class="bg-secondary text-white"> Image </td>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <table class="table  table-bordered border-secondary">
+                                <thead>
+                                    <tr>
+                                        <th class="table-dark text-center " scope="col" colspan="3">Food Categories</th>
+                                    </tr>
+                                    <tr class="text-center table-light">
+                                        <td class="bg-secondary text-white"> category</td>
+                                        <td class="bg-secondary text-white"> Percentage in the menu </td>
+                                        <td class="bg-secondary text-white"> Image </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+        
+                                    <tr class="text-center" v-for="categoria in categoriasComidas ">
+                                        <td class="align-middle">{{categoria}}</td>
+                                        <td class="align-middle">
+                                            {{(((porcentajeDeComidas[categoria])/this.comida.length)*100).toFixed(2)
+                                            +"%"}}</td>
+                                        <td><img class="w-50"
+                                                :src="'https://www.themealdb.com/images/category/' + categoria + '.png'" alt="">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                            <tr class="text-center" v-for="categoria in categoriasComidas ">
-                                <td class="align-middle">{{categoria}}</td>
-                                <td class="align-middle">
-                                    {{(((porcentajeDeComidas[categoria])/this.comida.length)*100).toFixed(2) +"%"}}</td>
-                                <td><img class="w-50"
-                                        :src="'https://www.themealdb.com/images/category/' + categoria + '.png'" alt="">
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    </div>
+                    
 
                     <!--food regions-->
-                    <table class="table table table-bordered border-secondary">
-                        <thead>
-                            <tr>
-                                <th class="table-dark text-center" scope="col" colspan="3">Food Regions</th>
-                            </tr>
-                            <tr class="table-light text-center">
-                                <td class="bg-secondary text-white">Regions</td>
-                                <td class="bg-secondary text-white">Percentage of area </td>
-                                <td class="bg-secondary text-white">Number of plates </td>
-                            </tr>
-                        </thead>
-                        <tbody v-for="categoria in areaComidas">
-                            <tr class="text-center">
-                                <td class="align-middle">{{categoria}}</td>
-                                <td>{{(((porcentajeAreasComidas[categoria])/this.comida.length)*100).toFixed(2) +"%"}}
-                                </td>
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <table class="table table table-bordered border-secondary">
+                                <thead>
+                                    <tr>
+                                        <th class="table-dark text-center" scope="col" colspan="3">Food Regions</th>
+                                    </tr>
+                                    <tr class="table-light text-center">
+                                        <td class="bg-secondary text-white">Regions</td>
+                                        <td class="bg-secondary text-white">Percentage of area </td>
+                                        <td class="bg-secondary text-white">Number of plates </td>
+                                    </tr>
+                                </thead>
+                                <tbody v-for="categoria in areaComidas">
+                                    <tr class="text-center">
+                                        <td class="align-middle">{{categoria}}</td>
+                                        <td>{{(((porcentajeAreasComidas[categoria])/this.comida.length)*100).toFixed(2)
+                                            +"%"}}
+                                        </td>
+        
+                                        <td class="align-middle">{{porcentajeAreasComidas[categoria]}}</td>
+        
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                                <td class="align-middle">{{porcentajeAreasComidas[categoria]}}</td>
-
-                            </tr>
-                        </tbody>
-                    </table>
+                    </div>
+                    
 
                     <!--drink categories-->
-                    <table class="table table  table-bordered border-secondary table-striped">
-                        <thead>
-                            <tr>
-                                <th class="table-dark text-center" scope="col" colspan="3">Drinks Categories</th>
-                            </tr>
-                            <tr class="table-light text-center">
-                                <td class="bg-secondary text-white">Drink</td>
-                                <td class="bg-secondary text-white">Percentage of drink</td>
-                            </tr>
-                        </thead>
-                        <tbody v-for="bebida in categoriasBebidas">
-                            <tr class="text-center">
-                                <td class="align-middle">{{bebida}}</td>
-                                <td>{{(((porcentajeDeBebidasCategoria[bebida])/this.bebida.length)*100).toFixed(2)
-                                    +"%"}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <table class="table table  table-bordered border-secondary table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="table-dark text-center" scope="col" colspan="3">Drinks Categories
+                                        </th>
+                                    </tr>
+                                    <tr class="table-light text-center">
+                                        <td class="bg-secondary text-white">Drink</td>
+                                        <td class="bg-secondary text-white">Percentage of drink</td>
+                                    </tr>
+                                </thead>
+                                <tbody v-for="bebida in categoriasBebidas">
+                                    <tr class="text-center">
+                                        <td class="align-middle">{{bebida}}</td>
+                                        <td>{{(((porcentajeDeBebidasCategoria[bebida])/this.bebida.length)*100).toFixed(2)
+                                            +"%"}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
                 </div>
+            </div>
+
 
             </div>
-            
+
+            </div>
+
         </section>
     </main>
 
