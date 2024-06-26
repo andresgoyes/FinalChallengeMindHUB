@@ -9,13 +9,9 @@ const app = createApp({
             drinks: [],
             searchText: "",
             categories: [],
-<<<<<<< HEAD
-            selectedCategories: []
-=======
             selectedCategories: [],
             favorites: [],
             showFavoritesModal: false
->>>>>>> main
         }
     },
     created() {
@@ -34,21 +30,13 @@ const app = createApp({
         },
         fetchDataDrinks(url) {
             fetch(url).then(response => response.json()).then(data => {
-<<<<<<< HEAD
-                this.drinks = data.drinks || []
-=======
                 this.drinks = data.drinks.map(drink => ({ ...drink, addedToFavorites: false })) || []
->>>>>>> main
                 console.log(this.drinks);
             })
         },
         fetchDataMeals(url) {
             fetch(url).then(response => response.json()).then(data => {
-<<<<<<< HEAD
-                this.meals = data.meals || []
-=======
                 this.meals = data.meals.map(meal => ({ ...meal, addedToFavorites: false })) || []
->>>>>>> main
                 console.log(this.meals);
             })
         },
@@ -58,9 +46,6 @@ const app = createApp({
             } else {
                 this.filteredItems;
             }
-<<<<<<< HEAD
-        }
-=======
         },
         addToFavorites(item) {
             item.addedToFavorites = !item.addedToFavorites;
@@ -82,7 +67,6 @@ const app = createApp({
         
         
 
->>>>>>> main
     },
     computed: {
         filteredItems() {

@@ -1,21 +1,16 @@
-let urlApi = "https://www.themealdb.com/api/json/v1/1/search.php?s=%"
+let urlApi = "https://www.themealdb.com/api/json/v1/1/search.php?s=%";
 
-const { createApp } = Vue
+const { createApp } = Vue;
 const app = createApp({
     data() {
-
         return {
             meals: [],
             mealsBK: [],
             categories: [],
             searchText: "",
-<<<<<<< HEAD
-            selectedCategories: []
-=======
             selectedCategories: [],
             favorites: [],
             showFavoritesModal: false
->>>>>>> main
         };
     },
     created() {
@@ -23,15 +18,17 @@ const app = createApp({
     },
     methods: {
         fetchData(url) {
-            fetch(url).then(response => response.json()).then(data => {
-                this.meals = data.meals;
-                this.mealsBK = data.meals;
-                this.categories = Array.from(new Set(this.meals.map(meal => meal.strCategory)));
-            })
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    this.meals = data.meals;
+                    this.mealsBK = data.meals;
+                    this.categories = Array.from(new Set(this.meals.map(meal => meal.strCategory)));
+                })
         },
         handleSearch() {
             if (this.searchText.trim() === "") {
-                alert("What do you need? Let us help you find it!");
+                alert("Please enter a search term.");
             } else {
                 this.filteredMeals();
             }
@@ -48,22 +45,40 @@ const app = createApp({
             } else {
                 this.meals = filteredByText;
             }
-<<<<<<< HEAD
-=======
         },
         addToFavorites(item) {
-            item.addedToFavorites = !item.addedToFavorites;
-            if (!this.favorites.includes(item)) {
-                this.favorites.push(item);
+            item.addedToFavorites = !item.addedToFavorites; 
+            if (item.addedToFavorites) {
+                if (!this.favorites.some(favorite => favorite.idMeal === item.idMeal)) {
+                    this.favorites.push(item);
+                }
             } else {
-                this.favorites = this.favorites.filter(favorite => favorite.idDrink !== item.idDrink && favorite.idMeal !== item.idMeal);
+                this.favorites = this.favorites.filter(favorite => favorite.idMeal !== item.idMeal);
             }
+
+            this.updateButtonState(item);
+
             localStorage.setItem('favorites', JSON.stringify(this.favorites));
         },
-
-        mounted(){
+        updateButtonState(item) {
+            this.meals.forEach(meal => {
+                if (meal.idMeal === item.idMeal) {
+                    meal.addedToFavorites = item.addedToFavorites;
+                }
+            });
+        },
+        mounted() {
             this.favorites = JSON.parse(localStorage.getItem('favorites')) || [];
->>>>>>> main
+            this.syncFavoritesState();
+        },
+        syncFavoritesState() {
+            this.meals.forEach(meal => {
+                if (this.favorites.some(favorite => favorite.idMeal === meal.idMeal)) {
+                    meal.addedToFavorites = true;
+                } else {
+                    meal.addedToFavorites = false;
+                }
+            });
         }
     },
     computed: {

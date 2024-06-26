@@ -1,29 +1,11 @@
-<<<<<<< HEAD
 header {
-=======
-#header {
->>>>>>> main
     .navbar-dark .navbar-nav .nav-link:hover {
         color: orange;
     }
 }
 
-<<<<<<< HEAD
-body {
-=======
-#body {
->>>>>>> main
-    width: 100%;
-    height: 100vh;
-    background-color: whitesmoke;
-}
-
-<<<<<<< HEAD
-main {
-=======
 #app {
->>>>>>> main
-    background-color: whitesmoke;
+    background: linear-gradient(rgb(99, 102, 193), rgb(236, 251, 220), rgb(255, 255, 255));
 
     .banner {
 
@@ -39,22 +21,9 @@ main {
             filter: contrast(200%) drop-shadow(0 0 5px black);
         }
 
-        .carousel-2 {
-            h2 {
-                color: whitesmoke !important;
-                filter: contrast(200%) drop-shadow(0 0 5px #ffd700);
-            }
-
-            p {
-                color: whitesmoke !important;
-                filter: contrast(200%) drop-shadow(0 0 5px #ffd700);
-            }
-
-        }
-
         .carousel-item img {
             width: 100vw;
-            height: 37.5vh;
+            height: 50vh;
             object-fit: cover;
         }
 
@@ -66,19 +35,34 @@ main {
 
     }
 
+    @media (max-width: 768px) {
+        .banner .carousel-caption h2 {
+            font-size: 2.0rem;
+        }
+
+        .banner .carousel-caption p {
+            font-size: 1.0rem;
+        }
+
+        .banner .carousel-caption .btn {
+            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+        }
+    }
+
     .inputs {
         .input-group-text {
             background-color: whitesmoke;
             border: none;
         }
     }
-    
+
 
     .cards {
 
         .cards-i {
             border: 2px solid #330113;
-            transition: ease .2s;            
+            transition: ease .2s;
             height: 80% !important;
 
             &:hover {
@@ -90,7 +74,7 @@ main {
 
         .card-text {
             display: -webkit-box;
-            -webkit-line-clamp: 2;
+            -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -107,9 +91,9 @@ main {
         }
     }
 
-    .cardDetails{
+    .cardDetails {
         background-color: white;
-        border: 2px solid #330113;             
+        border: 2px solid #330113;
     }
 
     .card {
@@ -136,6 +120,7 @@ main {
     }
 
     .tablas {
+
         thead,
         th {
             color: white;
@@ -166,34 +151,6 @@ main {
     }
 }
 
-<<<<<<< HEAD
-footer {
-    height: 5vh;
-=======
-#footer {
->>>>>>> main
-    width: 100%;
-    background-color: #212529;
-    color: whitesmoke;
-
-    .img-fluid {
-        height: 4.5vh;
-        width: 4.5vh;
-    }
-
-    a {
-        color: whitesmoke;
-        text-decoration: none;
-        transition: ease .1s;
-
-        &:hover {
-            filter: drop-shadow(0 0 10px #D90368);
-        }
-    }
-<<<<<<< HEAD
-=======
-}
-
 #floating-button {
     position: fixed;
     bottom: 20px;
@@ -211,42 +168,46 @@ footer {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1050;
-    background-color: rgba(0, 0, 0, 0.5);    
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal-body{
+.modal-body {
     display: flex !important;
     flex-wrap: wrap !important;
-    justify-content: center !important;    
+    justify-content: center !important;
 }
 
-.mt-auto{
-    justify-content: center !important;    
+.mt-auto {
+    justify-content: center !important;
 }
 
 .carta_modal {
     width: 300px;
-    display: flexbox; 
-    box-sizing: border-box;  
+    display: flexbox;
+    box-sizing: border-box;
     justify-content: center;
     align-items: center;
+
     .go-detail {
         margin-bottom: 1vw;
         background-color: red;
         color: whitesmoke;
         font-weight: bold;
         justify-content: center;
+
         &:hover {
             box-shadow: 0 0 10px black;
         }
     }
 }
+
 .card-container {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
 }
+
 .card-img-top {
     width: 100%;
     height: auto;
@@ -260,16 +221,71 @@ footer {
     gap: 20px;
     padding: 20px;
 }
+
 .video {
     flex: 1;
 }
+
 .texto {
     flex: 1;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
 }
+
 h2 {
-    text-align: center; /* Centra el texto del h2 */
->>>>>>> main
+    text-align: center;
+    /* Centra el texto del h2 */
+}
+
+@import url(//fonts.googleapis.com/css?family=Montserrat:300,500);
+
+.team4 {
+    font-family: "Montserrat", sans-serif;
+    color: #8d97ad;
+    font-weight: 300;
+}
+
+.team5 {
+    font-family: "Montserrat", sans-serif;
+    color: #212529;
+    font-weight: 350;
+}
+
+.team4 h1,
+.team4 h2,
+.team4 h3,
+.team4 h4,
+.team4 h5,
+.team4 h6 {
+    color: #3e4555;
+}
+
+.team4 .font-weight-medium {
+    font-weight: 500;
+}
+
+.team4 h5 {
+    line-height: 22px;
+    font-size: 18px;
+}
+
+.team4 .subtitle {
+    color: #8d97ad;
+    line-height: 24px;
+    font-size: 13px;
+}
+
+.team4 ul li a {
+    color: #8d97ad;
+    padding-right: 15px;
+    -webkit-transition: 0.1s ease-in;
+    -o-transition: 0.1s ease-in;
+    transition: 0.1s ease-in;
+}
+
+.team4 ul li a:hover {
+    -webkit-transform: translate3d(0px, -5px, 0px);
+    transform: translate3d(0px, -5px, 0px);
+    color: #316ce8;
 }

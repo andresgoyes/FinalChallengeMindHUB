@@ -1,81 +1,109 @@
-const urlApi = "https://aulamindhub.github.io/amazing-api/events.json";
+let url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=%"
+let url2 = "https://www.themealdb.com/api/json/v1/1/search.php?s=%"
+
 const { createApp } = Vue;
 
-createApp({
+const app = createApp({
     data() {
         return {
-            events: [],
-            currentDate: '',
-            upcomingEvents: [],
-            pastEvents: []
-        };
+            bebida:[],
+            comida:[],
+
+            areaComidas: [],
+            areaMasComida: [],
+            porcentajeAreasComidas:[],
+
+            categoriasBebidas: [],
+            porcentajeDeBebidasCategoria: [],
+            categoriaMasBebidas: [],
+
+            categoriasComidas:[],
+            porcentajeDeComidas:[],
+            masCategoriasComidas:[],
+
+            drinksAlcohol:[],
+            drinksNoalcohol: []
+            
+        }
     },
     created() {
-        this.fetchData(urlApi);
-    },
-    computed: {
-        highestAssistance() {
-            return this.calculateHighestAssistance(this.pastEvents);
-        },
-        lowestAssistance() {
-            return this.calculateLowestAssistance(this.pastEvents);
-        },
-        highestCapacity() {
-            return this.calculateHighestCapacity(this.events);
-        },
-        upcomingStats() {
-            return this.calculateEventStatistics(this.upcomingEvents);
-        },
-        pastStats() {
-            return this.calculateEventStatistics(this.pastEvents);
-        }
+        this.traerData(url)
+        this.traerData2(url2)
     },
     methods: {
-        fetchData(url) {
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    this.events = data.events;
-                    this.currentDate = data.currentDate;
+        traerData(url) {
+            fetch(url).then(response => response.json()).then(data => {
+                this.bebida = data.drinks
 
-                    this.upcomingEvents = this.events.filter(event => new Date(event.date) > new Date(this.currentDate));
-                    this.pastEvents = this.events.filter(event => new Date(event.date) < new Date(this.currentDate));
+                
+                //bebidas
+                data.drinks.forEach(e => {
+                    if (!this.categoriasBebidas.includes(e.strCategory)) {
+                        this.categoriasBebidas.push(e.strCategory)
+                    }
                 });
-        },
-        calculateHighestAssistance(events) {
-            let highestAssistanceEvent = events.reduce((max, event) => {
-                const percentage = (event.assistance / event.capacity) * 100;
-                return percentage > max.percentage ? { name: event.name, percentage: percentage.toFixed(2) } : max;
-            }, { name: '', percentage: 0 });
-            return highestAssistanceEvent;
-        },
-        calculateLowestAssistance(events) {
-            let lowestAssistanceEvent = events.reduce((min, event) => {
-                const percentage = (event.assistance / event.capacity) * 100;
-                return percentage < min.percentage ? { name: event.name, percentage: percentage.toFixed(2) } : min;
-            }, { name: '', percentage: 100 });
-            return lowestAssistanceEvent;
-        },
-        calculateHighestCapacity(events) {
-            let highestCapacityEvent = events.reduce((max, event) => {
-                return event.capacity > max.capacity ? { name: event.name, capacity: event.capacity } : max;
-            }, { name: '', capacity: 0 });
-            return highestCapacityEvent;
-        },
-        calculateEventStatistics(events) {
-            const categories = [...new Set(events.map(event => event.category))];
-            return categories.map(category => {
-                const categoryEvents = events.filter(event => event.category === category);
-                const totalRevenues = categoryEvents.reduce((sum, event) => sum + (event.price * (event.assistance || event.estimate)), 0);
-                const totalAssistance = categoryEvents.reduce((sum, event) => sum + (event.assistance || event.estimate), 0);
-                const totalCapacity = categoryEvents.reduce((sum, event) => sum + event.capacity, 0);
-                const percentageAssistance = (totalAssistance / totalCapacity * 100).toFixed(2);
-                return {
-                    name: category,
-                    revenues: totalRevenues,
-                    percentage: percentageAssistance
-                };
-            });
+
+                data.drinks.forEach((e) => {
+                    if (this.categoriasBebidas.includes(e.strCategory)) {
+                        if (!this.porcentajeDeBebidasCategoria[e.strCategory]) {
+                            this.porcentajeDeBebidasCategoria[e.strCategory] = 0
+                        }
+                        this.porcentajeDeBebidasCategoria[e.strCategory] += 1;
+                    }
+                });
+                this.categoriaMasBebidas = Object.keys(this.porcentajeDeBebidasCategoria).reduce((a, b) => this.porcentajeDeBebidasCategoria[a] > this.porcentajeDeBebidasCategoria[b] ? a : b);
+
+                //filtrar alcoholicas
+                this.bebida.forEach(e => e.strAlcoholic== "Alcoholic"? this.drinksAlcohol.push(e): this.drinksNoalcohol.push(e))
+            })
+        }, traerData2(url) {
+            fetch(url).then(response => response.json()).then(data => {
+                
+                this.comida = data.meals
+
+                
+                //comidas
+                data.meals.forEach(e => {
+                    if (!this.areaComidas.includes(e.strArea)) {
+                        this.areaComidas.push(e.strArea)
+                    }
+                });
+
+                data.meals.forEach((e) => {
+                    if (this.areaComidas.includes(e.strArea)) {
+                        if (!this.porcentajeAreasComidas[e.strArea]) {
+                            this.porcentajeAreasComidas[e.strArea] = 0
+                        }
+                        this.porcentajeAreasComidas[e.strArea] += 1;
+                    }
+                });
+                this.areaMasComida = Object.keys(this.porcentajeAreasComidas).reduce((a, b) => this.porcentajeAreasComidas[a] > this.porcentajeAreasComidas[b] ? a : b);
+
+                //categorias comidas
+                data.meals.forEach(e => {
+                    if (!this.categoriasComidas.includes(e.strCategory)) {
+                        this.categoriasComidas.push(e.strCategory)
+                    }
+                });
+
+
+                data.meals.forEach((e) => {
+                    if (this.categoriasComidas.includes(e.strCategory)) {
+                        if (!this.porcentajeDeComidas[e.strCategory]) {
+                            this.porcentajeDeComidas[e.strCategory] = 0
+                        }
+                        this.porcentajeDeComidas[e.strCategory] += 1;
+                    }
+                });
+                this.masCategoriasComidas = Object.keys(this.porcentajeDeComidas).reduce((a, b) => this.porcentajeDeComidas[a] > this.porcentajeDeComidas[b] ? a : b);
+                
+
+            
+            })
+            
         }
     }
-}).mount('#app');
+
+
+
+}).mount('#app')
