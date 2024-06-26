@@ -1,6 +1,9 @@
 header {
     .navbar-dark .navbar-nav .nav-link:hover {
-        color: orange;
+        color: orange;        
+    }
+    .bg-dark{
+        background-color: #212529 !important;
     }
 }
 
