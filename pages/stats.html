@@ -128,7 +128,7 @@
 
             <div  class="row justify-content-center py-5 w-100 tablas">
                 <div class="table-responsive col-md-12">
-                    <table class="table table-bordered">
+                    <table class="table table-danger table-bordered">
                         <thead>
                             <tr>
                                 <th class="table-dark text-center" scope="col" colspan="3">Food and Drinks Statistics</th>
@@ -154,7 +154,7 @@
             <div class="container-fluid">
 
                 <div class="container-fluid">
-                    <table class="table table-bordered border-secondary">
+                    <table class="table table-warning table-bordered border-secondary">
                         <thead>
                             <tr>
                                 <th class="table-dark text-center " scope="col" colspan="3">Food Categories</th>
@@ -181,10 +181,34 @@
 
             <!--bebidas coctel-->
             <div class="d-flex justify-content-evenly">
+                <table class="table table table-danger table-bordered border-secondary">
+                    <thead>
+                        <tr>
+                            <th class="table-dark text-center" scope="col" colspan="4">Alcoholic drinks</th>
+                        </tr>
+                        <tr class="table-light text-center">
+                            <td class="bg-secondary text-white">Drink</td>
+                            <td class="bg-secondary text-white">Image</td>
+                            <td class="bg-secondary text-white">Ingredients</td>
+                            <td class="bg-secondary text-white">Preparation</td>
+                        </tr>
+                    </thead>
+                    <tbody v-for="bebida in drinksAlcohol">
+                        <tr class="text-center">
+                            <td class="align-middle">{{bebida.strDrink}}</td>
+                            <td class="col-4"><img class="w-50" :src="bebida.strDrinkThumb" alt=""></td>
+                            <td class="align-middle">{{bebida.strIngredient1}}<br>{{bebida.strIngredient2}}<br>{{bebida.strIngredient3}}</td>
+                            <td class="align-middle">{{bebida.strInstructions}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+            <div class="d-flex justify-content-evenly">
 
                 <!--bebidas ordinarias-->
                 
-                <table class="table table-bordered border-secondary">
+                <table class="table table table-warning table-bordered border-secondary">
                     <thead>
                         <tr>
                             <th class="table-dark text-center" scope="col" colspan="3">Food Regions</th>
@@ -205,8 +229,31 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="container-fluid">
-                    <table class="table table-bordered border-secondary">
+                <div class="container-fluid ">
+                    
+                    <table class="table table table-danger table-bordered border-secondary">
+                        <thead>
+                            <tr>
+                                <th class="table-dark text-center" scope="col" colspan="4">Non-alcoholic drinks</th>
+                            </tr>
+                            <tr class="table-light text-center">
+                                <td class="bg-secondary text-white">Drink</td>
+                                <td class="bg-secondary text-white">Image</td>
+                                <td class="bg-secondary text-white">Ingredients</td>
+                                <td class="bg-secondary text-white">Preparation</td>
+
+                            </tr>
+                        </thead>
+                        <tbody v-for="bebida in drinksNoalcohol">
+                            <tr class="text-center">
+                                <td class="align-middle">{{bebida.strDrink}}</td>
+                                <td class="col-4"><img class="w-100" :src="bebida.strDrinkThumb" alt=""></td>
+                                <td class="align-middle">{{bebida.strIngredient1}}<br>{{bebida.strIngredient2}}<br>{{bebida.strIngredient3}}</td>
+                                <td class="align-middle">{{bebida.strInstructions.slice(0,91)}}.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table table-warning table-bordered border-secondary">
                         <thead>
                             <tr>
                                 <th class="table-dark text-center" scope="col" colspan="3">Drinks Categories</th>
@@ -223,6 +270,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    
                 </div>
             </div>
         </section>

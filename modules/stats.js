@@ -22,7 +22,8 @@ const app = createApp({
             porcentajeDeComidas:[],
             masCategoriasComidas:[],
 
-
+            drinksAlcohol:[],
+            drinksNoalcohol: []
             
         }
     },
@@ -53,6 +54,8 @@ const app = createApp({
                 });
                 this.categoriaMasBebidas = Object.keys(this.porcentajeDeBebidasCategoria).reduce((a, b) => this.porcentajeDeBebidasCategoria[a] > this.porcentajeDeBebidasCategoria[b] ? a : b);
 
+                //filtrar alcoholicas
+                this.bebida.forEach(e => e.strAlcoholic== "Alcoholic"? this.drinksAlcohol.push(e): this.drinksNoalcohol.push(e))
             })
         }, traerData2(url) {
             fetch(url).then(response => response.json()).then(data => {
@@ -94,6 +97,9 @@ const app = createApp({
                     }
                 });
                 this.masCategoriasComidas = Object.keys(this.porcentajeDeComidas).reduce((a, b) => this.porcentajeDeComidas[a] > this.porcentajeDeComidas[b] ? a : b);
+                
+
+            
             })
             
         }
