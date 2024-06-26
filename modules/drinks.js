@@ -21,81 +21,78 @@ const app = createApp({
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    this.drinks = data.drinks
-                    this.drinksBK = data.drinks 
-                    this.categories = Array.from(new Set(this.drinks.map(drink => drink.strCategory)))
-                })
+                    this.drinks = data.drinks;
+                    this.drinksBK = data.drinks;
+                    this.categories = Array.from(new Set(this.drinks.map(drink => drink.strCategory)));
+                    this.syncFavoritesState();
+                });
         },
         handleSearch() {
             if (this.searchText.trim() === "") {
-                alert("Please enter a search term.")
+                alert("Please enter a search term.");
             } else {
-                this.filteredDrinks()
+                this.filteredDrinks();
             }
         },
         filteredDrinks() {
             let filteredByText = this.drinksBK.filter(drink =>
                 drink.strDrink.toLowerCase().includes(this.searchText.toLowerCase())
             );
-    
+
             if (this.selectedCategories.length > 0) {
                 this.drinks = filteredByText.filter(drink =>
                     this.selectedCategories.includes(drink.strCategory)
                 );
             } else {
-                this.drinks = filteredByText
+                this.drinks = filteredByText;
             }
         },
         addToFavorites(item) {
-            item.addedToFavorites = !item.addedToFavorites; 
+            item.addedToFavorites = !item.addedToFavorites;
             if (item.addedToFavorites) {
                 if (!this.favorites.some(favorite => favorite.idDrink === item.idDrink)) {
-                    this.favorites.push(item)
+                    this.favorites.push(item);
                 }
             } else {
-                this.favorites = this.favorites.filter(favorite => favorite.idDrink !== item.idDrink)
+                this.favorites = this.favorites.filter(favorite => favorite.idDrink !== item.idDrink);
             }
-    
+
             this.updateButtonState(item);
-    
-            localStorage.setItem('favorites', JSON.stringify(this.favorites))
+
+            localStorage.setItem('favorites', JSON.stringify(this.favorites));
         },
         updateButtonState(item) {
             this.drinks.forEach(drink => {
                 if (drink.idDrink === item.idDrink) {
-                    drink.addedToFavorites = item.addedToFavorites
+                    drink.addedToFavorites = item.addedToFavorites;
                 }
             });
-        },
-        mounted() {
-            this.favorites = JSON.parse(localStorage.getItem('favorites')) || []
-            this.syncFavoritesState()
         },
         syncFavoritesState() {
+            this.favorites = JSON.parse(localStorage.getItem('favorites')) || [];
             this.drinks.forEach(drink => {
-                if (this.favorites.some(favorite => favorite.idDrink === drink.idDrink)) {
-                    drink.addedToFavorites = true
-                } else {
-                    drink.addedToFavorites = false
-                }
+                drink.addedToFavorites = this.favorites.some(favorite => favorite.idDrink === drink.idDrink);
             });
         }
+    },
+    mounted() {
+        this.favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        this.syncFavoritesState();
     },
     computed: {
         filteredItems() {
             let filteredByText = this.drinksBK.filter(drink =>
                 drink.strDrink.toLowerCase().includes(this.searchText.toLowerCase())
             );
-    
+
             if (this.selectedCategories.length > 0) {
                 return filteredByText.filter(drink =>
                     this.selectedCategories.includes(drink.strCategory)
                 );
             } else {
-                return filteredByText
+                return filteredByText;
             }
         }
     }
-    
-
 }).mount('#app');
+
