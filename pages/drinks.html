@@ -157,7 +157,7 @@
                             {{ item.addedToFavorites ? 'Added' : 'Add to Favorites❤️' }}
                         </button>
                         <br>
-                        <a :href="'../pages/details.html?id=' + item.idDrink" class="btn go-details">Details</a>
+                        <a :href="'/pages/details.html?id=' + item.idDrink" class="btn go-details">Details</a>
                     </div>
                 </div>
             </div>
@@ -167,7 +167,6 @@
                 ❤️
             </button>
         </div>
-
         <!-- Modal de favoritos -->
         <div v-if="showFavoritesModal" class="modal" tabindex="-1" style="display: block;">
             <div class="modal-dialog modal-lg">
@@ -197,7 +196,7 @@
                                             {{ item.addedToFavorites ? 'Remove' : 'Add to Favorites❤️' }}
                                         </button>
                                         <br>
-                                        <a :href="'../pages/details.html?id=' + item.idDrink"
+                                        <a :href="'/pages/details.html?id=' + item.idDrink"
                                             class="btn btn btn-outline-info go-details">Details</a>
                                     </div>
                                 </div>
