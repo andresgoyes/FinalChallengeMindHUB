@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="../assets/favico.png" type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../styles/main.css" />
     <title>Drinks</title>
 </head>
@@ -30,9 +32,8 @@
                             <a class="nav-link active" aria-current="page" href="#">Drinks</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page"
-                                href="../pages/foods.html">Foods</a>
-                        </li>                        
+                            <a class="nav-link active" aria-current="page" href="../pages/foods.html">Foods</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="../pages/contact.html">Contact</a>
                         </li>
@@ -56,8 +57,6 @@
                         aria-label="Slide 3"></button>
                     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3"
                         aria-label="Slide 4"></button>
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4"
-                        aria-label="Slide 5"></button>
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="5000">
@@ -65,7 +64,12 @@
                         <div
                             class="carousel-caption d-flex h-100 flex-column justify-content-center align-items-center">
                             <h2>Drinks & Foods</h2>
-                            <p>Lorem Ipsum</p>
+                            <p>We are a hidden kitchen offering a variety of products to suit all tastes.</p>
+                            <div class="carousel-caption">
+                                <a href="../index.html" target="_blank"><button type="button"
+                                        class="btn btn-outline-light">Read
+                                        More</button></a>
+                            </div>
                         </div>
                     </div>
                     <div class="carousel-item" data-bs-interval="5000">
@@ -73,7 +77,12 @@
                         <div
                             class="carousel-caption d-flex h-100 flex-column justify-content-center align-items-center carousel-2">
                             <h2>Drinks</h2>
-                            <p>Lorem Ipsum</p>
+                            <p>We have all kinds of drinks, both alcoholic and non-alcoholic, cocktails for every taste,
+                                or why not a good cappuccino?</p>
+                            <div class="carousel-caption">
+                                <a href="#"><button type="button" class="btn btn-outline-light">Read
+                                        More</button></a>
+                            </div>
                         </div>
                     </div>
                     <div class="carousel-item" data-bs-interval="5000">
@@ -81,23 +90,26 @@
                         <div
                             class="carousel-caption d-flex h-100 flex-column justify-content-center align-items-center">
                             <h2>Foods</h2>
-                            <p>Lorem Ipsum</p>
+                            <p>Here you will find dishes from all around the world. Want to tantalize your taste buds
+                                with a Turkish dish? And the best part is, we also offer vegan meals</p>
+                            <div class="carousel-caption">
+                                <a href="../pages/foods.html" target="_blank"><button type="button"
+                                        class="btn btn-outline-light">Read
+                                        More</button></a>
+                            </div>
                         </div>
                     </div>
                     <div class="carousel-item" data-bs-interval="5000">
-                        <img src="../assets/optional_banner_4.jpg" class="d-block w-100" alt="Contact">
+                        <img src="../assets/banner4.png" class="d-block w-100" alt="Contact">
                         <div
                             class="carousel-caption d-flex h-100 flex-column justify-content-center align-items-center">
                             <h2>Stats</h2>
-                            <p>Lorem Ipsum</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item" data-bs-interval="5000">
-                        <img src="../assets/optional_banner_5.jpg" class="d-block w-100" alt="Contact">
-                        <div
-                            class="carousel-caption d-flex h-100 flex-column justify-content-center align-items-center">
-                            <h2>Contact Us</h2>
-                            <p>Lorem Ipsum</p>
+                            <p>Take a look at the summary of our products</p>
+                            <div class="carousel-caption">
+                                <a href="../pages/stats.html" target="_blank"><button type="button"
+                                        class="btn btn-outline-light">Read
+                                        More</button></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -117,13 +129,14 @@
             <div class="input-group mb-3 d-flex justify-content-between align-items-center">
                 <div class="checkBox d-flex flex-wrap">
                     <div v-for="category in categories" :key="category" class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" :id="category" :value="category" v-model="selectedCategories">
+                        <input class="form-check-input" type="checkbox" :id="category" :value="category"
+                            v-model="selectedCategories">
                         <label class="form-check-label" :for="category">{{ category }}</label>
                     </div>
                 </div>
                 <form class="d-flex" role="search" @submit.prevent>
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model="searchText" />
-                    <button v-on:click="handleSearch" class="btn btn-outline-success" type="submit">🔍</button>
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                        v-model="searchText" />
                 </form>
             </div>
         </section>
@@ -140,9 +153,10 @@
                     </div>
                     <div class="mt-auto">
                         <button class="btn mb-2 mx-1" :class="item.addedToFavorites ? 'btn-success' : 'btn-primary'"
-                                @click="addToFavorites(item)">
-                                {{ item.addedToFavorites ? 'Added' : 'Add to Favorites❤️' }}
-                            </button>
+                            @click="addToFavorites(item)">
+                            {{ item.addedToFavorites ? 'Added' : 'Add to Favorites❤️' }}
+                        </button>
+                        <br>
                         <a :href="'../pages/details.html?id=' + item.idDrink" class="btn go-details">Details</a>
                     </div>
                 </div>
@@ -153,60 +167,90 @@
                 ❤️
             </button>
         </div>
-    
-            <!-- Modal de favoritos -->
-    <div v-if="showFavoritesModal" class="modal" tabindex="-1" style="display: block;">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Favorites</h5>
-                    <button type="button" class="btn-close" @click="showFavoritesModal = false"></button>
-                </div>
-                <div class="modal-body">
-                    <div v-if="favorites.length === 0">
-                        <p>No favorites added yet.</p>
+
+        <!-- Modal de favoritos -->
+        <div v-if="showFavoritesModal" class="modal" tabindex="-1" style="display: block;">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Favorites</h5>
+                        <button type="button" class="btn-close" @click="showFavoritesModal = false"></button>
                     </div>
-                    <div v-else class="card-container">
-                        <div v-for="item in favorites" :key="item.idDrink || item.idMeal" class="carta_modal card mb-3">
-                            <img :src="item.strDrinkThumb || item.strMealThumb" class="card-img-top" :alt="item.strDrink || item.strMeal">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ item.strDrink || item.strMeal }}</h5>
-                                <p class="card-text">{{ item.strInstructions.slice(0, 50) }}...</p>
-                                <button class="btn" :class="item.addedToFavorites ? 'btn-success' : 'btn-primary'" @click="addToFavorites(item)">
-                                    {{ item.addedToFavorites ? 'Added' : 'Add to Favorites' }}
-                                </button>
-                            </div>
-                            <div class="mt-auto">
-                                <a :href="'./pages/details.html?id=' + (item.idDrink || item.idMeal)" class="btn go-detail">Details</a>
+                    <div class="modal-body">
+                        <div v-if="favorites.length === 0">
+                            <p>No favorites added yet.</p>
+                        </div>
+                        <div v-else class="card-container">
+                            <div v-for="item in favorites" :key="item.idDrink || item.idMeal"
+                                class="carta_modal card mb-3">
+                                <img :src="item.strDrinkThumb || item.strMealThumb" class="card-img-top"
+                                    :alt="item.strDrink || item.strMeal">
+                                <div class="card-body">
+                                    <div>
+                                        <h5 class="card-title">{{ item.strDrink }}</h5>
+                                        <p class="card-text-1">{{ item.strInstructions.slice(0, 50) }}...</p>
+                                    </div>
+                                    <div class="mt-auto">
+                                        <button class="btn mb-2 mx-1"
+                                            :class="item.addedToFavorites ? 'btn-success' : 'btn-primary'"
+                                            @click="addToFavorites(item)">
+                                            {{ item.addedToFavorites ? 'Remove' : 'Add to Favorites❤️' }}
+                                        </button>
+                                        <br>
+                                        <a :href="'../pages/details.html?id=' + item.idDrink"
+                                            class="btn go-details">Details</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" @click="showFavoritesModal = false">Close</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                            @click="showFavoritesModal = false">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </main>
-    <footer class="d-flex justify-content-between align-items-center px-2">
-        <div class="d-flex">
-            <a href="https://www.facebook.com/andresgoyes" target="_blank" class="me-3">
-                <img src="../assets/fb_logo.png" alt="Facebook" class="img-fluid" width="40" height="40">
-            </a>
-            <a href="https://wa.me/3006445026" target="_blank" class="me-3">
-                <img src="../assets/wa_logo.png" alt="WhatsApp" class="img-fluid" width="40" height="40">
-            </a>
-            <a href="https://www.instagram.com/andresgoyes" target="_blank">
-                <img src="../assets/ig_logo.png" alt="Instagram" class="img-fluid" width="40" height="40">
-            </a>
+    <footer class="footer bg-dark text-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3 mb-4 mb-md-0 text-center text-md-left">
+                    <img src="../assets/rappi.png" alt="Patrocinador 1" class="img-fluid rounded w-50">
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0 text-center">
+                    <h5>Tecnologies:</h5>
+                    <ul class="list-unstyled">
+                        <li>HTML5, CSS3</li>
+                        <li>JavaScript</li>
+                        <li>Bootstrap</li>
+                        <li>VUE.js</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0 text-center">
+                    <h5>Social:</h5>
+                    <ul class="list-unstyled d-flex justify-content-center justify-content-md-center">
+                        <li><a href="https://www.facebook.com/RappiColombia" class="btn btn-outline-light btn-sm m-1"><i
+                                    class="bi bi-facebook"></i></a></li>
+                        <li><a href="https://x.com/rappicolombia" class="btn btn-outline-light btn-sm m-1"><i
+                                    class="bi bi-twitter"></i></a></li>
+                        <li><a href="https://instagram.com/rappicolombia" class="btn btn-outline-light btn-sm m-1"><i
+                                    class="bi bi-instagram"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0 text-center text-md-left">
+                    <img src="../assets/mindhub.png" alt="Patrocinador 2" class="img-fluid rounded w-75">
+                </div>
+            </div>
         </div>
-        <p class="pt-3 fs-6">Cohort 3 - Team 4: Andres Goyes - Eduardo Gonzales - Luis Miguel Macias</p>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="../modules/drinks.js" type="module"></script>
+</body>
+
+</html>
 </body>
 
 </html>

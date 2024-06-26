@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../styles/main.css" />
     <title>Stats</title>
 </head>
@@ -55,8 +57,6 @@
                         aria-label="Slide 3"></button>
                     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3"
                         aria-label="Slide 4"></button>
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4"
-                        aria-label="Slide 5"></button>
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="5000">
@@ -64,7 +64,12 @@
                         <div
                             class="carousel-caption d-flex h-100 flex-column justify-content-center align-items-center">
                             <h2>Drinks & Foods</h2>
-                            <p>Lorem Ipsum</p>
+                            <p>We are a hidden kitchen offering a variety of products to suit all tastes.</p>
+                            <div class="carousel-caption">
+                                <a href="../index.html" target="_blank"><button type="button"
+                                        class="btn btn-outline-light">Read
+                                        More</button></a>
+                            </div>
                         </div>
                     </div>
                     <div class="carousel-item" data-bs-interval="5000">
@@ -72,7 +77,13 @@
                         <div
                             class="carousel-caption d-flex h-100 flex-column justify-content-center align-items-center carousel-2">
                             <h2>Drinks</h2>
-                            <p>Lorem Ipsum</p>
+                            <p>We have all kinds of drinks, both alcoholic and non-alcoholic, cocktails for every taste,
+                                or why not a good cappuccino?</p>
+                            <div class="carousel-caption">
+                                <a href="../pages/drinks.html" target="_blank"><button type="button"
+                                        class="btn btn-outline-light">Read
+                                        More</button></a>
+                            </div>
                         </div>
                     </div>
                     <div class="carousel-item" data-bs-interval="5000">
@@ -80,23 +91,26 @@
                         <div
                             class="carousel-caption d-flex h-100 flex-column justify-content-center align-items-center">
                             <h2>Foods</h2>
-                            <p>Lorem Ipsum</p>
+                            <p>Here you will find dishes from all around the world. Want to tantalize your taste buds
+                                with a Turkish dish? And the best part is, we also offer vegan meals</p>
+                            <div class="carousel-caption">
+                                <a href="../pages/foods.html" target="_blank"><button type="button"
+                                        class="btn btn-outline-light">Read
+                                        More</button></a>
+                            </div>
                         </div>
                     </div>
                     <div class="carousel-item" data-bs-interval="5000">
-                        <img src="../assets/optional_banner_4.jpg" class="d-block w-100" alt="Contact">
+                        <img src="../assets/banner4.png" class="d-block w-100" alt="Contact">
                         <div
                             class="carousel-caption d-flex h-100 flex-column justify-content-center align-items-center">
                             <h2>Stats</h2>
-                            <p>Lorem Ipsum</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item" data-bs-interval="5000">
-                        <img src="../assets/optional_banner_5.jpg" class="d-block w-100" alt="Contact">
-                        <div
-                            class="carousel-caption d-flex h-100 flex-column justify-content-center align-items-center">
-                            <h2>Contact Us</h2>
-                            <p>Lorem Ipsum</p>
+                            <p>Take a look at the summary of our products</p>
+                            <div class="carousel-caption">
+                                <a href="../pages/stats.html" target="_blank"><button type="button"
+                                        class="btn btn-outline-light">Read
+                                        More</button></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -113,141 +127,249 @@
             </div>
         </section>
 
-
-
-
         <!--tablas-->
-        <section class="p-5 bg-primary-subtle">
+        <section class="p-5">
 
             <!--comida categorias-->
 
+            <div class="row justify-content-center py-5 w-100 tablas">
 
-
-
-            
-
-            <div  class="row justify-content-center py-5 w-100 tablas">
                 <div class="table-responsive col-md-12">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th class="table-dark text-center" scope="col" colspan="3">Food and Drinks Statistics</th>
+                                <th class="table-dark text-center" scope="col" colspan="3">Food and Drinks Statistics
+                                </th>
                             </tr>
                             <tr class="table-light">
                                 <td class="center bg-secondary text-white">Area with the highest presence </td>
                                 <td class="center bg-secondary text-white">Category with the highest presence </td>
-                                <td class="center bg-secondary text-white">Drinks category with the highest presence</td>
+                                <td class="center bg-secondary text-white">Drinks category with the highest presence
+                                </td>
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="text-center">
-                                <td class="align-middle">{{areaMasComida+" "+ (((this.porcentajeAreasComidas[this.areaMasComida])/this.comida.length)*100).toFixed(2) +"%"}}</td>
-                                <td class="align-middle">{{masCategoriasComidas + " " + (((this.porcentajeDeComidas[this.masCategoriasComidas])/this.comida.length)*100).toFixed(2) +"%"}}</td>
-                                <td class="align-middle">{{categoriaMasBebidas + " " + (((this.porcentajeDeBebidasCategoria[this.categoriaMasBebidas])/this.bebida.length)*100).toFixed(2) +"%"}}</td>
+                                <td class="align-middle">{{areaMasComida+" "+
+                                    (((this.porcentajeAreasComidas[this.areaMasComida])/this.comida.length)*100).toFixed(2)
+                                    +"%"}}</td>
+                                <td class="align-middle">{{masCategoriasComidas + " " +
+                                    (((this.porcentajeDeComidas[this.masCategoriasComidas])/this.comida.length)*100).toFixed(2)
+                                    +"%"}}</td>
+                                <td class="align-middle">{{categoriaMasBebidas + " " +
+                                    (((this.porcentajeDeBebidasCategoria[this.categoriaMasBebidas])/this.bebida.length)*100).toFixed(2)
+                                    +"%"}}</td>
                             </tr>
-                            
+
                         </tbody>
                     </table>
                 </div>
-            </div>
-
-            <div class="container-fluid">
-
-                <div class="container-fluid">
-                    <table class="table table-bordered border-secondary">
-                        <thead>
-                            <tr>
-                                <th class="table-dark text-center " scope="col" colspan="3">Food Categories</th>
-                            </tr>
-                            <tr class="text-center table-light">
-                                <td class="bg-secondary text-white"> category</td>
-                                <td class="bg-secondary text-white">  Percentage in the menu </td>
-                                <td class="bg-secondary text-white"> Image </td>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr class="text-center" v-for="categoria in categoriasComidas ">
-                                <td class="align-middle">{{categoria}}</td>
-                                <td class="align-middle">{{(((porcentajeDeComidas[categoria])/this.comida.length)*100).toFixed(2) +"%"}}</td>
-                                <td><img class="" :src="'https://www.themealdb.com/images/category/' + categoria + '.png'" alt=""></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
             </div>
 
 
             <!--bebidas coctel-->
-            <div class="d-flex justify-content-evenly">
+            <div class="row justify-content-evenly">
 
-                <!--bebidas ordinarias-->
-                
-                <table class="table table-bordered border-secondary">
-                    <thead>
-                        <tr>
-                            <th class="table-dark text-center" scope="col" colspan="3">Food Regions</th>
-                        </tr>
-                        <tr class="table-light text-center">
-                            <td class="bg-secondary text-white">Regions</td>
-                            <td class="bg-secondary text-white">Percentage of area </td>
-                            <td class="bg-secondary text-white">Number of plates </td>
-                        </tr>
-                    </thead>
-                    <tbody v-for="categoria in areaComidas">
-                        <tr class="text-center">
-                            <td class="align-middle">{{categoria}}</td>
-                            <td>{{(((porcentajeAreasComidas[categoria])/this.comida.length)*100).toFixed(2) +"%"}}</td>
-                            
-                            <td class="align-middle">{{porcentajeAreasComidas[categoria]}}</td>
-
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="container-fluid">
-                    <table class="table table-bordered border-secondary">
+                <div class="col-md-6">
+                    <table class=" table table table-bordered border-secondary ">
                         <thead>
                             <tr>
-                                <th class="table-dark text-center" scope="col" colspan="3">Drinks Categories</th>
+                                <th class="table-dark text-center" scope="col" colspan="4">Alcoholic drinks</th>
                             </tr>
                             <tr class="table-light text-center">
                                 <td class="bg-secondary text-white">Drink</td>
-                                <td class="bg-secondary text-white">Percentage of drink</td>
+                                <td class="bg-secondary text-white">Image</td>
+                                <td class="bg-secondary text-white">Ingredients</td>
+                                <td class="bg-secondary text-white">Preparation</td>
                             </tr>
                         </thead>
-                        <tbody v-for="bebida in categoriasBebidas">
+                        <tbody v-for="bebida in drinksAlcohol">
                             <tr class="text-center">
-                                <td class="align-middle">{{bebida}}</td>
-                                <td>{{(((porcentajeDeBebidasCategoria[bebida])/this.bebida.length)*100).toFixed(2) +"%"}}</td>
+                                <td class="align-middle">{{bebida.strDrink}}</td>
+                                <td class="col-md-2  col-4 align-middle col-sm-6"><img class="w-100 "
+                                        :src="bebida.strDrinkThumb" alt=""></td>
+                                <td class="align-middle">
+                                    {{bebida.strIngredient1}}<br>{{bebida.strIngredient2}}<br>{{bebida.strIngredient3}}
+                                </td>
+                                <td class="align-middle">{{bebida.strInstructions}}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+
+
+
+
+
+                <div class="col-md-6">
+                    <!-- bebidas no alcoholicas -->
+                    <table class="table table  table-bordered border-secondary">
+                        <thead>
+                            <tr>
+                                <th class="table-dark text-center" scope="col" colspan="4">Non-alcoholic drinks
+                                </th>
+                            </tr>
+                            <tr class="table-light text-center">
+                                <td class="bg-secondary text-white">Drink</td>
+                                <td class="bg-secondary text-white">Image</td>
+                                <td class="bg-secondary text-white">Ingredients</td>
+                                <td class="bg-secondary text-white">Preparation</td>
+
+                            </tr>
+                        </thead>
+                        <tbody v-for="bebida in drinksNoalcohol">
+                            <tr class="text-center">
+                                <td class="align-middle">{{bebida.strDrink}}</td>
+                                <td class="col-md-3 col-sm-6 align-middle col-4"><img class="w-100"
+                                        :src="bebida.strDrinkThumb" alt=""></td>
+                                <td class="align-middle">
+                                    {{bebida.strIngredient1}}<br>{{bebida.strIngredient2}}<br>{{bebida.strIngredient3}}
+                                </td>
+                                <td class="align-middle">{{bebida.strInstructions.slice(0,91)}}.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <!--food categories-->
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <table class="table  table-bordered border-secondary">
+                                <thead>
+                                    <tr>
+                                        <th class="table-dark text-center " scope="col" colspan="3">Food Categories</th>
+                                    </tr>
+                                    <tr class="text-center table-light">
+                                        <td class="bg-secondary text-white"> category</td>
+                                        <td class="bg-secondary text-white"> Percentage in the menu </td>
+                                        <td class="bg-secondary text-white"> Image </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr class="text-center" v-for="categoria in categoriasComidas ">
+                                        <td class="align-middle">{{categoria}}</td>
+                                        <td class="align-middle">
+                                            {{(((porcentajeDeComidas[categoria])/this.comida.length)*100).toFixed(2)
+                                            +"%"}}</td>
+                                        <td><img class="w-50"
+                                                :src="'https://www.themealdb.com/images/category/' + categoria + '.png'"
+                                                alt="">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+
+                    <!--food regions-->
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <table class="table table table-bordered border-secondary">
+                                <thead>
+                                    <tr>
+                                        <th class="table-dark text-center" scope="col" colspan="3">Food Regions</th>
+                                    </tr>
+                                    <tr class="table-light text-center">
+                                        <td class="bg-secondary text-white">Regions</td>
+                                        <td class="bg-secondary text-white">Percentage of area </td>
+                                        <td class="bg-secondary text-white">Number of plates </td>
+                                    </tr>
+                                </thead>
+                                <tbody v-for="categoria in areaComidas">
+                                    <tr class="text-center">
+                                        <td class="align-middle">{{categoria}}</td>
+                                        <td>{{(((porcentajeAreasComidas[categoria])/this.comida.length)*100).toFixed(2)
+                                            +"%"}}
+                                        </td>
+
+                                        <td class="align-middle">{{porcentajeAreasComidas[categoria]}}</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+
+                    <!--drink categories-->
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <table class="table table  table-bordered border-secondary table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="table-dark text-center" scope="col" colspan="3">Drinks Categories
+                                        </th>
+                                    </tr>
+                                    <tr class="table-light text-center">
+                                        <td class="bg-secondary text-white">Drink</td>
+                                        <td class="bg-secondary text-white">Percentage of drink</td>
+                                    </tr>
+                                </thead>
+                                <tbody v-for="bebida in categoriasBebidas">
+                                    <tr class="text-center">
+                                        <td class="align-middle">{{bebida}}</td>
+                                        <td>{{(((porcentajeDeBebidasCategoria[bebida])/this.bebida.length)*100).toFixed(2)
+                                            +"%"}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+
+
+            </div>
+
+            </div>
+
         </section>
     </main>
 
-
-    
-
-    <footer class="d-flex justify-content-between align-items-center px-2">
-        <div class="d-flex">
-            <a href="https://www.facebook.com/andresgoyes" target="_blank" class="me-3">
-                <img src="../assets/fb_logo.png" alt="Facebook" class="img-fluid" width="40" height="40">
-            </a>
-            <a href="https://wa.me/3006445026" target="_blank" class="me-3">
-                <img src="../assets/wa_logo.png" alt="WhatsApp" class="img-fluid" width="40" height="40">
-            </a>
-            <a href="https://www.instagram.com/andresgoyes" target="_blank">
-                <img src="../assets/ig_logo.png" alt="Instagram" class="img-fluid" width="40" height="40">
-            </a>
+    <footer class="footer bg-dark text-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3 mb-4 mb-md-0 text-center text-md-left">
+                    <img src="../assets/rappi.png" alt="Patrocinador 1" class="img-fluid rounded w-50">
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0 text-center">
+                    <h5>Tecnologies:</h5>
+                    <ul class="list-unstyled">
+                        <li>HTML5, CSS3</li>
+                        <li>JavaScript</li>
+                        <li>Bootstrap</li>
+                        <li>VUE.js</li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0 text-center">
+                    <h5>Social:</h5>
+                    <ul class="list-unstyled d-flex justify-content-center justify-content-md-center">
+                        <li><a href="https://www.facebook.com/RappiColombia" class="btn btn-outline-light btn-sm m-1"><i
+                                    class="bi bi-facebook"></i></a></li>
+                        <li><a href="https://x.com/rappicolombia" class="btn btn-outline-light btn-sm m-1"><i
+                                    class="bi bi-twitter"></i></a></li>
+                        <li><a href="https://instagram.com/rappicolombia" class="btn btn-outline-light btn-sm m-1"><i
+                                    class="bi bi-instagram"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0 text-center text-md-left">
+                    <img src="../assets/mindhub.png" alt="Patrocinador 2" class="img-fluid rounded w-75">
+                </div>
+            </div>
         </div>
-        <p class="pt-3 fs-6">Cohort 3 - Team 4: Andres Goyes - Eduardo Gonzales - Luis Miguel Macias</p>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
-    <script src="../modules/stats.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../modules/stats.js" type="module"></script>
+</body>
+
+</html>
 </body>
 
 </html>
