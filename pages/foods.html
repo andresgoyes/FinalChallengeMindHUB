@@ -153,7 +153,7 @@
                         <p class="card-text">{{ item.strInstructions }}</p>                        
                     </div>
                     <div class="mt-auto">
-                        <button class="btn mb-2 mx-1" :class="item.addedToFavorites ? 'btn-success' : 'btn-primary'"
+                        <button class="btn mb-2 mx-1" :class="item.addedToFavorites ? 'btn-danger' : 'btn-primary'"
                             @click="addToFavorites(item)">
                             {{ item.addedToFavorites ? 'Added' : 'Add to Favorites❤️' }}
                         </button>
@@ -193,7 +193,7 @@
                                     </div>
                                     <div class="mt-auto">
                                         <button class="btn mb-2 mx-1"
-                                            :class="item.addedToFavorites ? 'btn-success' : 'btn-primary'"
+                                            :class="item.addedToFavorites ? 'btn-danger' : 'btn-primary'"
                                             @click="addToFavorites(item)">
                                             {{ item.addedToFavorites ? 'Remove' : 'Add to Favorites❤️' }}
                                         </button>
