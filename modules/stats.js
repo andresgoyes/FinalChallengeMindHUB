@@ -55,6 +55,7 @@ const app = createApp({
 
                 //filtrar alcoholicas
                 this.bebida.forEach(e => e.strAlcoholic== "Alcoholic"? this.drinksAlcohol.push(e): this.drinksNoalcohol.push(e))
+                
             })
         }, traerData2(url) {
             fetch(url).then(response => response.json()).then(data => {
