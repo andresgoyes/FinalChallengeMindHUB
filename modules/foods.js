@@ -24,7 +24,8 @@ const app = createApp({
                     this.meals = data.meals;
                     this.mealsBK = data.meals;
                     this.categories = Array.from(new Set(this.meals.map(meal => meal.strCategory)));
-                })
+                    this.syncFavoritesState(); // Sincroniza el estado de los favoritos después de cargar los datos
+                });
         },
         handleSearch() {
             if (this.searchText.trim() === "") {
@@ -67,19 +68,16 @@ const app = createApp({
                 }
             });
         },
-        mounted() {
-            this.favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-            this.syncFavoritesState();
-        },
         syncFavoritesState() {
+            this.favorites = JSON.parse(localStorage.getItem('favorites')) || [];
             this.meals.forEach(meal => {
-                if (this.favorites.some(favorite => favorite.idMeal === meal.idMeal)) {
-                    meal.addedToFavorites = true;
-                } else {
-                    meal.addedToFavorites = false;
-                }
+                meal.addedToFavorites = this.favorites.some(favorite => favorite.idMeal === meal.idMeal);
             });
         }
+    },
+    mounted() {
+        this.favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        this.syncFavoritesState(); // Sincroniza el estado de los favoritos cuando la aplicación se monta
     },
     computed: {
         filteredItems() {
